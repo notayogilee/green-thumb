@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :users, except: [:destroy] do
     resources :gardens
   end
+
+  resources :plants, except: [:destroy]
   # resources :gardens do
   #   collection do
   #     get :all_gardens
