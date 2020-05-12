@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   # before_action :set_user, only: [:show, :update, :destroy]
-  before_action :set_user
+  # before_action :set_user
 
   # GET /users
   def index
@@ -18,6 +18,8 @@ class UsersController < ApplicationController
   
   # GET /users/:id
   def show
+    # @user = User.find(params[:id])
+    set_user
     json_response(@user)
   end
 
@@ -39,7 +41,8 @@ class UsersController < ApplicationController
 
   def user_params
     # whitelist params
-    params.permit(:name, :email, :password, :password_confirmation)
+    # params.permit(:name, :email, :password, :password_confirmation)
+    params.permit(:name, :email, :password)
   end
 
   def set_user
