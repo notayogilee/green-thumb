@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Link, Route } from 'react-router-dom';
+import axios from 'axios';
 import Home from './components/Home';
 import Register from './components/Register';
 import Login from './components/Login';
 import './App.css';
 
 function App() {
+  useEffect(() => {
+    axios.get('/users')
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+  }, [])
+
   return (
+
+
+
     <div>
       <nav>
         <ul>
