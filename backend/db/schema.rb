@@ -22,27 +22,6 @@ ActiveRecord::Schema.define(version: 2020_05_11_232404) do
     t.index ["user_id"], name: "index_gardens_on_user_id"
   end
 
-  create_table "plants", id: false, force: :cascade do |t|
-    t.integer "list_id"
-    t.text "list_name"
-    t.text "list_description"
-    t.text "list_optimal_sun"
-    t.text "list_optimal_soil"
-    t.text "list_planting_considerations"
-    t.text "list_when_to_plant"
-    t.text "list_growing_from_seed"
-    t.text "list_transplanting"
-    t.text "list_spacing"
-    t.text "list_watering"
-    t.text "list_feeding"
-    t.text "list_other_care"
-    t.text "list_diseases"
-    t.text "list_pests"
-    t.text "list_harvesting"
-    t.text "list_storage_use"
-    t.text "list_image_url"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
