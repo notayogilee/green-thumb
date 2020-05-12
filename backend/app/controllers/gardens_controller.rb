@@ -1,18 +1,25 @@
 class GardensController < ApplicationController
-  # before_action :set_user
-  # before_action :set_user_garden, only: [:show, :update, :destroy]
+  
+  # before_action is a filter to do a task before all or certain methods
+  before_action :set_user, except: [:all_gardens]
+  before_action :set_user_garden, only: [:show, :update, :destroy]
 
   # GET /users/:user_id/gardens
   def index
-    set_user
+    # set_user
     # set_user_garden
     json_response(@user.gardens)
   end
 
+  def all_gardens
+    @gardens = Garden.all
+    json_response(@gardens)
+  end
+
   # GET /users/:user_id/gardens/:id
   def show
-    set_user
-    set_user_garden
+    # set_user
+    # set_user_garden
     json_response(@garden)
   end
 

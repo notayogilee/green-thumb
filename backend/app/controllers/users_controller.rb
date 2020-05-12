@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   
+  # before_action is a filter to do a task before all or certain methods
   # before_action :set_user, only: [:show, :update, :destroy]
   # before_action :set_user
+  # skip_before_action :require_login, only: [:new, :create]
 
   # GET /users
   def index
