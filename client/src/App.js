@@ -1,43 +1,38 @@
 import React, { useEffect } from 'react';
-import { Switch, Link, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import axios from 'axios';
+import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Register from './components/Register';
 import Login from './components/Login';
-import Button from './components/Button';
+
 import './App.css';
+import PlantList from './components/PlantList';
 
 function App() {
-  useEffect(() => {
-    axios.get('/users')
-      .then(res => console.log(res))
-      .catch(err => console.log(err))
-  }, [])
+
+  // useEffect(() => {
+  //   axios.get('/users')
+  //     .then(res => console.log(res))
+  //     .catch(err => console.log(err))
+  // }, [])
+
+  // axios.get('http://harvesthelper.herokuapp.com/api/v1/plants?api_key=a35687d62a7ae5fcfe6142759a785780')
+  //   .then(res => console.log(res.data))
+  //   .catch(err => console.log(err))
 
   return (
 
-
-
     <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/"><Button title="Home" /></Link>
-          </li>
-          <li>
-            <Link to="/register">Register</Link>
-          </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-        </ul>
-      </nav>
+      <Navbar />
       <Switch>
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
         <Route path='/' component={Home} />
       </Switch>
+      <PlantList />
     </div>
+
   );
 }
 
