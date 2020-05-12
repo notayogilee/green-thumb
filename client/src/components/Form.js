@@ -3,6 +3,6 @@ import React from 'react';
 export default function Form(props) {
 
   return (
-    <Form />
+    <h1>Hi from Form</h1>
   )
 }

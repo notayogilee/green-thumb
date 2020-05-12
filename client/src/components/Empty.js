@@ -3,6 +3,6 @@ import React from 'react';
 export default function Empty(props) {
 
   return (
-    <Empty />
+    <h1>Hi from Empty</h1>
   )
 }

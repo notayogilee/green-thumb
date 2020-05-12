@@ -4,6 +4,7 @@ import axios from 'axios';
 import Home from './components/Home';
 import Register from './components/Register';
 import Login from './components/Login';
+import Button from './components/Button';
 import './App.css';
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/"><Button title="Home" /></Link>
           </li>
           <li>
             <Link to="/register">Register</Link>

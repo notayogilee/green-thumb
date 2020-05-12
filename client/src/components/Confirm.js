@@ -3,6 +3,6 @@ import React from 'react';
 export default function Confirm(props) {
 
   return (
-    <Confirm />
+    <h1>Hi from Confirm</h1>
   )
 }

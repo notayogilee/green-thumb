@@ -3,6 +3,6 @@ import React from 'react';
 export default function Error(props) {
 
   return (
-    <Error />
+    <h1>Hi from Error</h1>
   )
 }
