@@ -38,7 +38,13 @@ export default function Login(props) {
   return (
     <div>
       <center> <h1> Login </h1> </center>
-      <form className="form" onSubmit={event => event.preventDefault()}>
+      <form className="form"
+        onSubmit={event => {
+          event.target.reset();
+          event.preventDefault();
+
+        }
+        }>
         <div className="container login-form">
           <label>Email : </label>
           <input
@@ -48,7 +54,7 @@ export default function Login(props) {
             onChange={event => {
               setEmail(event.target.value);
             }}
-            name="username" required></input>
+            name="email" required></input>
           <label>Password : </label>
           <input
             type="password"

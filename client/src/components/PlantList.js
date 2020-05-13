@@ -2,6 +2,8 @@ import React from 'react';
 import PlantListItem from './PlantListItem';
 
 export default function PlantList(props) {
+
+
   const plants = [{
     description: "Carrots are a popular root vegetable that are easy to grow in sandy soil. They are resistant to most pests and diseases, and are a good late season crop that can tolerate frost. Not all carrots are orange; varieties vary in color from purple to white.",
     diseases: "Aster Yellow Disease will cause shortened and discolored carrot tops and hairy roots. This disease is spread by pests as they feed from plant to plant. Keep weeds down and invest in a control plan for pests such as leafhoppers. This disease has the ability to overwinter.",
