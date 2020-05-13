@@ -3,23 +3,40 @@ class PlantsController < ApplicationController
   # before_action is a filter to do a task before all or certain methods
   # before_action :set_plant, only: [:show, :update, :destroy]
 
-  def index
+  def all_plants
     @plants = Plant.all
     json_response(@plants)
   end
-
+  
+  def index
+    # user_id = params[:user_id]
+    garden_id = params[:garden_id]
+    garden = Garden.find(garden_id)
+    @plants = garden.plants
+    json_response(@plants)
+  end
+  
   # POST /plants
   def create
     @plant = Plant.create!(plant_params)
     json_response(@plant, :created)
   end
-
+  def show_original
+    set_plant
+    json_response(@plant)
+    
+  end
   
   # GET /plants/:id
   def show
     # @plant = Plant.find(params[:id])
     set_plant
-    json_response(@plant)
+    watering_time = @plant.garden_plants.first.watering_time
+    # @plant[:watering_time] = watering_time
+    w_times = @plant.attributes
+    w_times[:watering_time] = watering_time
+    # json_response(@plant)
+    json_response(w_times)
   end
 
   # STRETCH

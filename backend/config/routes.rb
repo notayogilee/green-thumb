@@ -2,23 +2,31 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   # ORDER MATTERS !!
-
+  
   get '/gardens' => 'gardens#all_gardens'
+  get '/plants', to: 'plants#all_plants'
+  get '/plants/:id', to: 'plants#show_original'
   # resources :gardens do
   #   collection do
   #     get :all_gardens
   #   end
   #   # resources :plants
   # end
+  resources :gardens do
+    resources :plants
+  end
   resources :users, except: [:destroy] do
     resources :gardens
   end
-
-  # resources :gardens do
-  #   resources :garden_plants
-  # end
-
-  resources :plants, except: [:destroy]
+##
+  concern :garden_plant_list do
+    resources :garden_plants
+  end
+  resources :gardens, concerns: :garden_plant_list
+  resources :plants, concerns: :garden_plant_list
+  
+  
+  # resources :plants, except: [:destroy]
   # resources :gardens do
   #   collection do
   #     get :all_gardens
