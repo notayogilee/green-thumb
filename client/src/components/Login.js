@@ -22,8 +22,8 @@ export default function Login(props) {
   function findUser(users, email) {
 
     // console.log('Users', users, 'Email', email)
-    let user;
-    for (user of users) {
+
+    for (let user of users) {
       if (email === user.email && password === user.password) {
 
         console.log(user.name);
