@@ -1,10 +1,11 @@
 import React from 'react';
+import PlantCard from './PlantCard';
 
 export default function Garden(props) {
 
   return (
 
 
-    <h1>Hi from home!</h1>
+    <PlantCard />
   )
 }
