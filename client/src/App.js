@@ -8,13 +8,16 @@ import Login from './components/Login';
 
 import './App.css';
 import PlantList from './components/PlantList';
+import PlantCard from './components/PlantCard';
+import PlantListItem from './components/PlantListItem';
 
 function App() {
 
   // useEffect(() => {
-  //   axios.get('/users')
-  //     .then(res => console.log(res))
-  //     .catch(err => console.log(err))
+
+  axios.get('/users')
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
   // }, [])
 
   // axios.get('http://harvesthelper.herokuapp.com/api/v1/plants?api_key=a35687d62a7ae5fcfe6142759a785780')
@@ -30,7 +33,8 @@ function App() {
         <Route path='/register' component={Register} />
         <Route path='/' component={Home} />
       </Switch>
-      <PlantList />
+      {/* <PlantList /> */}
+      <PlantCard />
     </div>
 
   );

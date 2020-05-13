@@ -1,7 +1,9 @@
 import React from 'react';
-import PlantListItem from './PlantListItem';
+import PlantCardList from './PlantCardList';
 
-export default function PlantList(props) {
+
+export default function plantCard(props) {
+
   const plants = [{
     description: "Carrots are a popular root vegetable that are easy to grow in sandy soil. They are resistant to most pests and diseases, and are a good late season crop that can tolerate frost. Not all carrots are orange; varieties vary in color from purple to white.",
     diseases: "Aster Yellow Disease will cause shortened and discolored carrot tops and hairy roots. This disease is spread by pests as they feed from plant to plant. Keep weeds down and invest in a control plan for pests such as leafhoppers. This disease has the ability to overwinter.",
@@ -64,34 +66,16 @@ export default function PlantList(props) {
   }
   ]
 
-
-  const plantArray = plants.map(plant =>
-    <PlantListItem
+  const plantCard = plants.map(plant =>
+    <PlantCardList
       key={plant.id}
-      name={plant.name}
-      description={plant.description}
-      feeding={plant.feeding}
-      diseases={plant.description}
-      growing_from_seed={plant.growing_from_seed}
-      harvesting={plant.harvesting}
       img={plant.image_url}
-      optimal_soil={plant.optimal_soil}
-      other_care={plant.other_care}
-      pests={plant.pests}
-      planting_considerations={plant.planting_considerations}
-      spacing={plant.spacing}
-      storage={plant.storage_use}
-      transplanting={plant.transplanting}
-      watering={plant.watering}
-      when_to_plant={plant.when_to_plant}
+      name={plant.name}
     />
   );
 
 
-
   return (
-    <ul>
-      {plantArray}
-    </ul>
+    <ul>{plantCard}</ul>
   )
 }
