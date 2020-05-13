@@ -20,9 +20,7 @@ function App() {
     .catch(err => console.log(err))
   // }, [])
 
-  // axios.get('http://harvesthelper.herokuapp.com/api/v1/plants?api_key=a35687d62a7ae5fcfe6142759a785780')
-  //   .then(res => console.log(res.data))
-  //   .catch(err => console.log(err))
+
 
   return (
 
@@ -33,8 +31,7 @@ function App() {
         <Route path='/register' component={Register} />
         <Route path='/' component={Home} />
       </Switch>
-      {/* <PlantList /> */}
-      <PlantCard />
+
     </div>
 
   );

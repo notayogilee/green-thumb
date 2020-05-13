@@ -1,0 +1,12 @@
+.form {
+  position: relative;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 40%;
+  position: absolute;
+  left: 25%;
+}
