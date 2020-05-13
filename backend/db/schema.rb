@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_12_180005) do
+ActiveRecord::Schema.define(version: 2020_05_12_202236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "garden_plants", force: :cascade do |t|
+    t.bigint "garden_id"
+    t.bigint "plants_id"
+    t.time "watering_time"
+    t.index ["garden_id"], name: "index_garden_plants_on_garden_id"
+    t.index ["plants_id"], name: "index_garden_plants_on_plants_id"
+  end
 
   create_table "gardens", force: :cascade do |t|
     t.string "title"
@@ -48,5 +56,6 @@ ActiveRecord::Schema.define(version: 2020_05_12_180005) do
     t.string "password"
   end
 
+  add_foreign_key "garden_plants", "gardens"
   add_foreign_key "gardens", "users"
 end
