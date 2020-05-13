@@ -1,13 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import "./Login.scss";
 
 export default function Login(props) {
 
+  const [users, setUsers] = useState([])
   const [email, setEmail] = useState('')
-  const [password, setPassword] = useState(null)
+  const [password, setPassword] = useState('')
+
+  useEffect(() => {
+
+    axios.get('/users')
+      .then(res => setUsers(res.data))
+      .catch(err => console.log(err))
+  }, [])
+
+  console.log('Users: ', users)
+
+
+
+  function findUser(users, email) {
+
+    // console.log('Users', users, 'Email', email)
+    let user;
+    for (user of users) {
+      if (email === user.email && password === user.password) {
+
+        console.log(user.name);
+        return;
+      } else {
+
+        console.log("Email or password is invalid")
+      }
+    }
+  }
 
   return (
-    <body>
+    <div>
       <center> <h1> Login </h1> </center>
       <form className="form" onSubmit={event => event.preventDefault()}>
         <div className="container login-form">
@@ -30,10 +59,10 @@ export default function Login(props) {
             }}
             name="password" required></input>
 
-          <button onClick={() => console.log(email, password)}>Login</button>
+          <button onClick={() => findUser(users, email)}>Login</button>
 
         </div>
       </form>
-    </body>
+    </div>
   )
 }
