@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import useGardenData from '../hooks/useGardenData';
 import PlantCard from './PlantCard';
 import SearchResults from './SearchResults';
-import PlantCardList from './PlantCardList';
 
 export default function Home(props) {
 
@@ -22,10 +21,6 @@ export default function Home(props) {
     setSearchResults(results);
   }, [searchPlant]);
 
-  // function userSearch(props) {
-  //   if()
-  // }
-
   return (
 
     <div>
@@ -35,10 +30,12 @@ export default function Home(props) {
         placeholder="Which plant would you like?"
         onChange={handleChange}>
       </input>
+
       {searchPlant.length === 0 &&
 
         <PlantCard />
       }
+
       <ul>
         {searchResults.length > 0 && searchResults.map(plant => (
           <SearchResults
@@ -48,11 +45,10 @@ export default function Home(props) {
           />
         ))}
       </ul>
+
       {(searchResults.length === 0 && searchPlant.length > 0) &&
         <h2>That plant was not found!</h2>
       }
-
-
 
     </div>
   )

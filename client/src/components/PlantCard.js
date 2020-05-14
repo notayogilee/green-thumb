@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import useGardenData from '../hooks/useGardenData';
 import PlantCardList from './PlantCardList';
 

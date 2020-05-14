@@ -7,7 +7,7 @@ export default function PlantListItem(props) {
     <div>
 
       <h2>{props.name}</h2>
-      <img src={props.img}></img>
+      <img src={props.img} alt={props.name}></img>
       <p>{props.description}</p>
       <p>{props.watering}</p>
       <p>{props.feeding}</p>
