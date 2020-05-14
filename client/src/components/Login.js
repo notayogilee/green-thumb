@@ -53,7 +53,12 @@ export default function Login(props) {
             }}
             name="password" required></input>
 
-          <button onClick={() => findUser(state.users, email)}>Login</button>
+          <button onClick={() => {
+
+            findUser(state.users, email);
+
+
+          }} >Login</button>
 
         </div>
       </form>
