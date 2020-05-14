@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 
+
 export default function Register(props) {
 
   const [name, setName] = useState('')
@@ -55,7 +56,7 @@ export default function Register(props) {
             name="username" required></input>
 
           <button onClick={() =>
-            console.log('name: ', name, 'email: ', email, 'password: ', password)}>Register</button>
+            axios.post('/users', { name, email, password })}>Register</button>
 
         </div>
       </form>

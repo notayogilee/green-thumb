@@ -1,22 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import Home from './Home';
+import useGardenData from '../hooks/useGardenData';
 import PlantCardList from './PlantCardList';
 
 
 export default function PlantCard(props) {
-  // console.log('state', state)
 
-  const [plants, setPlants] = useState([])
+  const { state } = useGardenData();
 
-  useEffect(() => {
-
-    axios.get('/plants')
-      .then(res => setPlants(res.data))
-      .catch(err => console.log(err))
-  }, [])
-
-  const plantCard = plants.map(plant =>
+  const plantCard = state.plants.map(plant =>
 
     <PlantCardList
       key={plant.id}
@@ -25,10 +16,11 @@ export default function PlantCard(props) {
     />
   );
 
-
   return (
     <ul>{plantCard}</ul>
+
   )
 }
+
 
 

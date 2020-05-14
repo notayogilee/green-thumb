@@ -6,6 +6,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 
 import './App.css';
+import PlantListItem from './components/PlantListItem';
 
 
 function App() {

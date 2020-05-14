@@ -1,27 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import useGardenData from '../hooks/useGardenData';
 import "./Login.scss";
 
 export default function Login(props) {
 
-  const [users, setUsers] = useState([])
+  const { state } = useGardenData();
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  useEffect(() => {
-
-    axios.get('/users')
-      .then(res => setUsers(res.data))
-      .catch(err => console.log(err))
-  }, [])
-
-  console.log('Users: ', users)
-
-
 
   function findUser(users, email) {
-
-    // console.log('Users', users, 'Email', email)
 
     for (let user of users) {
       if (email === user.email && password === user.password) {
@@ -40,9 +30,7 @@ export default function Login(props) {
       <center> <h1> Login </h1> </center>
       <form className="form"
         onSubmit={event => {
-          event.target.reset();
           event.preventDefault();
-
         }
         }>
         <div className="container login-form">
@@ -65,7 +53,7 @@ export default function Login(props) {
             }}
             name="password" required></input>
 
-          <button onClick={() => findUser(users, email)}>Login</button>
+          <button onClick={() => findUser(state.users, email)}>Login</button>
 
         </div>
       </form>
