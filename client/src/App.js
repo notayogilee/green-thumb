@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Register from './components/Register';
 import Login from './components/Login';
+import Garden from './components/Garden';
 
 import './App.css';
 
@@ -19,6 +20,7 @@ function App() {
       <Switch>
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
+        <Route path='/garden' component={Garden} />
         <Route path='/' component={Home} />
       </Switch>
 

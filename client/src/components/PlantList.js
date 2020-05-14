@@ -28,8 +28,6 @@ export default function PlantList(props) {
     />
   );
 
-
-
   return (
     <ul>
       {plantArray}
