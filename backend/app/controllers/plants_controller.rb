@@ -8,30 +8,54 @@ class PlantsController < ApplicationController
     json_response(@plants)
   end
   
+  # def index
+  #   # user_id = params[:user_id]
+  #   garden_id = params[:garden_id]
+  #   garden = Garden.find(garden_id)
+  #   @plants = garden.plants
+  #   json_response(@plants)
+  # end
+
   def index
     # user_id = params[:user_id]
     garden_id = params[:garden_id]
     garden = Garden.find(garden_id)
+    
     @plants = garden.plants
-    json_response(@plants)
+    @w_times_array = []
+    @plants.each do |plant|
+      watering_time = plant.garden_plants.first.watering_time
+      @w_times = plant.attributes
+      @w_times[:watering_time] = watering_time
+      @w_times_array.push(@w_times)
+      
+    end
+    # json_response(@plant)
+    json_response(@w_times_array)
+    # json_response(@plants)
   end
+
   
   # POST /plants
   def create
     @plant = Plant.create!(plant_params)
     json_response(@plant, :created)
   end
+
   def show_original
+    # @plant = Plant.find(params[:id])
     set_plant
     json_response(@plant)
-    
   end
   
   # GET /plants/:id
   def show
     # @plant = Plant.find(params[:id])
+    garden_id = params[:garden_id]
+    garden = Garden.find(garden_id)
     set_plant
-    watering_time = @plant.garden_plants.first.watering_time
+    ## MUST ADD if (@plant) ELSE (not found)
+    watering_time = @plant.garden_plants.first.watering_time 
     # @plant[:watering_time] = watering_time
     w_times = @plant.attributes
     w_times[:watering_time] = watering_time
@@ -80,4 +104,5 @@ class PlantsController < ApplicationController
   def set_plant
     @plant = Plant.find(params[:id])
   end
+  
 end
