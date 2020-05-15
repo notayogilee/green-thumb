@@ -20,3 +20,11 @@ class RegistrationsController < ApplicationController
     end
   end
 end
+# The front end should send this 
+# {
+#   "user": {
+#     "name": "name",
+#     "email": "email@example.com",
+#     "password": "secret"
+#   }
+# }
