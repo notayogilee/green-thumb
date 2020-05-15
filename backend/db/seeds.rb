@@ -5,3 +5,49 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# TABLE PLANTS 
+connection = ActiveRecord::Base.connection
+sql = File.read('db/plants.sql') # Change path and filename as necessary
+# statements = sql.split(/;$/)
+# statements.pop
+
+ActiveRecord::Base.transaction do
+  connection.execute(sql)
+  # statements.each do |statement|
+  #   connection.execute(statement)
+  # end
+end
+
+
+# TABLE USERS
+# User.create([{ name: '', email: '@labber.ca', password: 'labber' }])
+User.create([
+  { name: 'Andy', email: 'andy@labber.ca', password: 'labber', password_confirmation: 'labber' },
+  { name: 'Sheldon', email: 'sheldon@labber.ca', password: 'labber', password_confirmation: 'labber' },
+  { name: 'Felix', email: 'felix@labber.ca', password: 'labber', password_confirmation: 'labber' },
+  { name: 'Ray', email: 'ray@labber.ca', password: 'labber', password_confirmation: 'labber' }
+  ])
+
+# TABLE GARDENS
+# { title: '', location: 'Montreal', user_id:  },
+Garden.create([
+  { title: 'The House Garden', location: 'Montreal', user_id: 1 },
+  { title: 'Back yard', location: 'Vancouver', user_id: 2 },
+  { title: 'LaFontaine', location: 'Montreal', user_id: 3 },
+  { title: 'Mont-Royale', location: 'Montreal', user_id: 3 }
+])
+
+# TABLE Garden_Plants
+# { garden_id: , plant_id: , watering_time: '' },
+GardenPlant.create([
+  { garden_id: 1, plant_id: 39, watering_time: '08:00:00' },
+  { garden_id: 1, plant_id: 3, watering_time: '07:00:00' },
+  { garden_id: 1, plant_id: 9, watering_time: '08:45:00' },
+  { garden_id: 2, plant_id: 18, watering_time: '09:00:00' },
+  { garden_id: 2, plant_id: 21, watering_time: '06:00:00' },
+  { garden_id: 2, plant_id: 38, watering_time: '22:00:00' },
+  { garden_id: 3, plant_id: 1, watering_time: '11:00:00' },
+  { garden_id: 3, plant_id: 3, watering_time: '20:00:00' },
+  { garden_id: 3, plant_id: 30, watering_time: '18:30:00' }
+])
