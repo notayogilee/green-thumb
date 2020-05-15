@@ -33,7 +33,7 @@ User.create([
 # { title: '', location: 'Montreal', user_id:  },
 Garden.create([
   { title: 'The House Garden', location: 'Montreal', user_id: 1 },
-  { title: 'Back yard', location: 'Montreal', user_id: 2 },
+  { title: 'Back yard', location: 'Vancouver', user_id: 2 },
   { title: 'LaFontaine', location: 'Montreal', user_id: 3 },
   { title: 'Mont-Royale', location: 'Montreal', user_id: 3 }
 ])
