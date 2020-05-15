@@ -5,51 +5,51 @@ import GardenDetails from './GardenDetails';
 
 export default function Garden(props) {
 
-  // const { state } = userGardenData();
+  const { state } = userGardenData();
 
-  // const gardens = state.gardens;
+  const gardens = state.gardens;
 
-  const gardens = [
-    {
-      id: 1,
-      title: "The House Garden",
-      location: "Montreal",
-      user_id: 1
-    },
-    {
-      id: 2,
-      title: "BackyardGarden",
-      location: "Montreal",
-      user_id: 2
-    },
-    {
-      id: 3,
-      title: "LaFontaine",
-      location: "Montreal",
-      user_id: 3
-    }
-  ];
+  // const gardens = [
+  //   {
+  //     id: 1,
+  //     title: "The House Garden",
+  //     location: "Montreal",
+  //     user_id: 1
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "BackyardGarden",
+  //     location: "Montreal",
+  //     user_id: 2
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "LaFontaine",
+  //     location: "Montreal",
+  //     user_id: 3
+  //   }
+  // ];
 
-  const users = [
-    {
-      id: 1,
-      name: "Andy",
-      email: "andy@labber.ca",
-      password: "labber"
-    },
-    {
-      id: 2,
-      name: "Sheldon",
-      email: "sheldon@labber.ca",
-      password: "labber"
-    },
-    {
-      id: 3,
-      name: "Felix",
-      email: "felix@labber.ca",
-      password: "labber"
-    }
-  ];
+  // const users = [
+  //   {
+  //     id: 1,
+  //     name: "Andy",
+  //     email: "andy@labber.ca",
+  //     password: "labber"
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Sheldon",
+  //     email: "sheldon@labber.ca",
+  //     password: "labber"
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Felix",
+  //     email: "felix@labber.ca",
+  //     password: "labber"
+  //   }
+  // ];
 
 
 
@@ -65,6 +65,7 @@ export default function Garden(props) {
 
     <GardenDetails
       key={garden.id}
+      id={garden.id}
       title={garden.title}
       location={garden.location}
     />
