@@ -1,12 +1,34 @@
 import React, { useState } from 'react';
 import PlantListItem from './PlantListItem';
 import useGardenData from '../hooks/useGardenData';
+import { useHistory } from 'react-router-dom';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 
 export default function PlantCardList(props) {
 
   const { state } = useGardenData();
   const [plantInfo, setPlantInfo] = useState(null);
+
+
+
+  const history = useHistory();
+
+  function getPlantData(allPlants, plantId) {
+    const selectedPlant = allPlants.filter(plant =>
+      plant.id === plantId
+    );
+    const plant = selectedPlant[0];
+    return plant;
+  }
+
+  const handleShow = (plantId) => {
+    let plantObject = getPlantData(state.plants, plantId)
+    history.push('/plant', plantObject);
+  }
+
+
 
   function getPlantDetails(allPlants, plantId) {
     const selectedPlant = allPlants.filter(plant =>
@@ -41,31 +63,31 @@ export default function PlantCardList(props) {
   return (
 
     <div>
-      {plantInfo &&
-        plantInfo
-      }
 
-      {plantInfo === null &&
-        <form className="form"
-          onSubmit={event => {
-            event.preventDefault();
+      <form className="form"
+        onSubmit={event => {
+          event.preventDefault();
 
-          }
-          }>
-
-          <h3>{props.name}</h3>
-
-          <button onClick={() => {
-            getPlantDetails(state.plants, props.id);
+        }
+        }>
 
 
-          }} >More Info</button>
+        <h3>{props.name}</h3>
 
-          <img src={props.img} alt="img"></img>
+        {/* <button onClick={() => {
+          getPlantDetails(state.plants, props.id);
 
-        </form>
-      }
+
+        }} >More Info</button> */}
+        <button onClick={() => handleShow(props.id)}>MoreInfo</button>
+
+
+        <img src={props.img} alt="img"></img>
+
+      </form>
+
 
     </div>
   )
+
 }
