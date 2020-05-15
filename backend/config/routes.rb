@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   # ORDER MATTERS !!
+  resources :sessions, only: [:create]
+  resources :registrations, only: [:create]
   
   get '/gardens' => 'gardens#all_gardens'
   get '/plants', to: 'plants#all_plants'
