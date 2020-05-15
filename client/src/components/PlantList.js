@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PlantListItem from './PlantListItem';
 import useGardenData from '../hooks/useGardenData';
 
@@ -9,6 +9,7 @@ export default function PlantList(props) {
   const plantArray = state.plants.map(plant =>
     <PlantListItem
       key={plant.id}
+      id={plant.id}
       name={plant.name}
       description={plant.description}
       feeding={plant.feeding}
@@ -25,12 +26,13 @@ export default function PlantList(props) {
       transplanting={plant.transplanting}
       watering={plant.watering}
       when_to_plant={plant.when_to_plant}
+
     />
   );
 
   return (
-    <ul>
-      {plantArray}
-    </ul>
+
+    { plantArray }
+
   )
 }

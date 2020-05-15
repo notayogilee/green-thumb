@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import useGardenData from '../hooks/useGardenData';
 import PlantCard from './PlantCard';
 import SearchResults from './SearchResults';
+import PlantList from './PlantList';
+
 
 export default function Home(props) {
 
@@ -22,8 +24,8 @@ export default function Home(props) {
   }, [searchPlant]);
 
   return (
-
     <div>
+
       <input
         type="text"
         value={searchPlant}

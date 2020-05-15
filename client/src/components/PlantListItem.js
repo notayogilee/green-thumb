@@ -2,9 +2,9 @@ import React from 'react';
 
 
 export default function PlantListItem(props) {
-  return (
 
-    <div>
+  return (
+    < div >
 
       <h2>{props.name}</h2>
       <img src={props.img} alt={props.name}></img>
@@ -23,6 +23,6 @@ export default function PlantListItem(props) {
       <p>{props.transplanting}</p>
       <p>{props.when_to_plant}</p>
 
-    </div>
+    </div >
   )
 }

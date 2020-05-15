@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import useGardenData from '../hooks/useGardenData';
 import "./Login.scss";
 import { Redirect } from 'react-router-dom';
-import Garden from './Garden';
 
 export default function Login(props) {
 
