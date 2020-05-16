@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import useGardenData from '../hooks/useGardenData';
+import useGardenData from '../../hooks/useGardenData';
 import "./Login.scss";
 
 export default function Login(props) {
