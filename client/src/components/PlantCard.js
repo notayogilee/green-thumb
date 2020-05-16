@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import useGardenData from '../hooks/useGardenData';
 import PlantCardList from './PlantCardList';
-
 
 export default function PlantCard(props) {
 
@@ -11,6 +10,7 @@ export default function PlantCard(props) {
 
     <PlantCardList
       key={plant.id}
+      id={plant.id}
       img={plant.image_url}
       name={plant.name}
     />

@@ -7,9 +7,12 @@ import useLoggedInState from '../hooks/useLoggedInState';
 function Navbar(props) {
   const { loggedInState, handleLogoutClick } = useLoggedInState()
 
+  // need to make sure user exists or not
+  // hard coded user for now
+  const user = 3;
+
   return (
     <nav>
-
       <ul>
         <li> {loggedInState.loggedInStatus} </li>
         <li>
@@ -32,7 +35,6 @@ function Navbar(props) {
         </li>
       </ul>
     </nav>
-
   );
 
 }

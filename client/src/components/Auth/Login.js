@@ -2,27 +2,31 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import useGardenData from '../../hooks/useGardenData';
 import "./Login.scss";
+import { Redirect } from 'react-router-dom';
 
 export default function Login(props) {
 
   const { state } = useGardenData();
 
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [userId, setUserId] = useState(null);
 
   function findUser(users, email) {
 
     for (let user of users) {
       if (email === user.email && password === user.password) {
 
-        console.log(user.name);
+        setUserId(user.id);
         return;
       } else {
-
-        console.log("Email or password is invalid")
+        console.log('error');
       }
     }
+  }
+
+  if (userId) {
+    return <Redirect userId={userId} to={`/gardens/${userId}/plants`} />
   }
 
   return (
@@ -31,6 +35,7 @@ export default function Login(props) {
       <form className="form"
         onSubmit={event => {
           event.preventDefault();
+
         }
         }>
         <div className="container login-form">
@@ -56,7 +61,6 @@ export default function Login(props) {
           <button onClick={() => {
 
             findUser(state.users, email);
-
 
           }} >Login</button>
 
