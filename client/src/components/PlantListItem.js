@@ -3,7 +3,7 @@ import { } from 'react-router-dom';
 
 
 export default function PlantListItem(props) {
-  console.log('props', props)
+
   return (
     < div >
 

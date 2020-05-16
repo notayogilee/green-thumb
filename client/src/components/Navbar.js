@@ -7,7 +7,7 @@ function Navbar(props) {
 
   // need to make sure user exists or not
   // hard coded user for now
-  const user = 1;
+  const user = 3;
 
   return (
     <nav>
@@ -28,7 +28,12 @@ function Navbar(props) {
         }
 
         {user &&
-          <Button name="Logout" />
+          <>
+            <Link to="/gardens">
+              <Button name="My Garden" />
+            </Link>
+            <Button name="Logout" />
+          </>
         }
       </ul>
     </nav>

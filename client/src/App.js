@@ -4,7 +4,9 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Register from './components/Register';
 import Login from './components/Login';
-import Garden from './components/Garden';
+
+import Gardens from './components/Gardens';
+// import GardenDetails from './components/GardenDetails';
 import PlantListItem from './components/PlantListItem';
 
 import './App.css';
@@ -18,7 +20,8 @@ function App() {
       <Switch>
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
-        <Route path='/garden' component={Garden} />
+        <Route path='/gardens' component={Gardens} />
+        {/* <Route path='/gardens/:gardenId' component={GardenDetails} /> */}
         <Route path='/plant' component={PlantListItem} />
         <Route path='/' component={Home} />
       </Switch>

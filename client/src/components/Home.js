@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import useGardenData from '../hooks/useGardenData';
 import PlantCard from './PlantCard';
 import SearchResults from './SearchResults';
-import PlantList from './PlantList';
-
 
 export default function Home(props) {
 
@@ -21,6 +19,7 @@ export default function Home(props) {
       plant.name.toLowerCase().includes(searchPlant)
     );
     setSearchResults(results);
+    //eslint-disable-next-line
   }, [searchPlant]);
 
   return (

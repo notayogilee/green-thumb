@@ -23,7 +23,7 @@ export default function Login(props) {
       }
     }
   }
-  console.log(userId)
+
   if (userId) {
     return <Redirect userId={userId} to={`/gardens/${userId}/plants`} />
   }
@@ -62,7 +62,6 @@ export default function Login(props) {
             findUser(state.users, email);
 
           }} >Login</button>
-
 
         </div>
       </form>
