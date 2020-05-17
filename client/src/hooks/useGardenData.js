@@ -7,7 +7,11 @@ export default function useGardenData() {
   const [state, setState] = useState({
     users: [],
     plants: [],
-    gardens: []
+    gardens: [],
+    user: {
+      logged_in: false,
+      user: null
+    }
   })
 
   useEffect(() => {
@@ -21,7 +25,7 @@ export default function useGardenData() {
       .catch(err => console.log(err))
   }, [])
 
-  return { state };
+  return { state, setState };
 }
 
 

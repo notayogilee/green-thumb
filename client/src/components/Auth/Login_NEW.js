@@ -3,8 +3,8 @@ import axios from 'axios';
 
 import "./Login.scss";
 
-import useLoggedInState from '../../hooks/useLoggedInState';
-import useGardenData from '../../hooks/useGardenData';
+// import useLoggedInState from '../../hooks/useLoggedInState';
+
 
 
 // Warning: Changing formats may affect server-side response.
@@ -12,11 +12,11 @@ import useGardenData from '../../hooks/useGardenData';
 
 export default function Login(props) {
 
-  const { state } = useGardenData();
-  const { loggedInState, handleSuccessfulAuth, checkLoginStatus } = useLoggedInState()
 
-  
-  
+  // const { loggedInState, handleSuccessfulAuth, checkLoginStatus } = useLoggedInState()
+
+
+
   // "loginErrors" is clint-side only //
   const [user, setUser] = useState({
     email: "",
@@ -36,29 +36,29 @@ export default function Login(props) {
     event.preventDefault();
 
     console.log("Login-session form submitted");
-    console.log("loggedInState (BEFORE) : ", loggedInState)
+    // console.log("loggedInState (BEFORE) : ", loggedInState)
     axios
-    .post('http://localhost:3000/sessions', // <-- this is full path, would it work without "http://localhost:3000"?
-    { 
-      user: {
-        email: user.email,
-        password: user.password
-      }
-    }, 
-    { withCredentials: true } // <-- VERY-IMPORTANT: Tells rails-API to set this cookie in client/browser. Without it no permission. Won't give errors!.
-    )
-    .then(res => {
-      console.log("Login Response", res.data)
-      if (res.data.status === "created") {
-        handleSuccessfulAuth(res.data)
-      }
-      
-    })
-    .catch(err => {
-      console.log("Login Error", err)
-    })
-    
-    console.log("loggedInState (AFTER) : ", loggedInState)
+      .post('http://localhost:3000/sessions', // <-- this is full path, would it work without "http://localhost:3000"?
+        {
+          user: {
+            email: user.email,
+            password: user.password
+          }
+        },
+        { withCredentials: true } // <-- VERY-IMPORTANT: Tells rails-API to set this cookie in client/browser. Without it no permission. Won't give errors!.
+      )
+      .then(res => {
+        console.log("Login Response", res.data)
+        if (res.data.status === "created") {
+          props.handleSuccessfulAuth(res.data)
+        }
+
+      })
+      .catch(err => {
+        console.log("Login Error", err)
+      })
+
+    // console.log("loggedInState (AFTER) : ", loggedInState)
   };
 
   return (
@@ -66,24 +66,24 @@ export default function Login(props) {
       <center> <h1> Login </h1> </center>
       <form className="form" onSubmit={handleSubmit}>
         <div className="container login-form">
-          
+
           <input
             type="email"
-            name="email" 
+            name="email"
             value={user.email}
             placeholder="Enter your email"
             onChange={handleChange}
             required
-            />
+          />
 
           <input
             type="password"
-            name="password" 
+            name="password"
             value={user.password}
             placeholder="Enter your Password"
             onChange={handleChange}
             required
-            />
+          />
 
           <button type="submit" onSubmit={handleSubmit}> Login </button>
 

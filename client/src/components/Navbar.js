@@ -5,7 +5,7 @@ import useLoggedInState from '../hooks/useLoggedInState';
 
 
 function Navbar(props) {
-  const { loggedInState, handleLogoutClick } = useLoggedInState()
+  // const { loggedInState, handleLogoutClick } = useLoggedInState()
 
   // need to make sure user exists or not
   // hard coded user for now
@@ -14,7 +14,7 @@ function Navbar(props) {
   return (
     <nav>
       <ul>
-        <li> {loggedInState.loggedInStatus} </li>
+        {/* <li> {loggedInState.loggedInStatus} </li> */}
         <li>
           <Link to="/">
             <Button name="Home" />
@@ -31,7 +31,7 @@ function Navbar(props) {
           </Link>
         </li>
         <li>
-            <Button name="logout" onclick={() => handleLogoutClick()}/>
+          <Button name="logout" onclick={() => props.handleLogoutClick()} />
         </li>
       </ul>
     </nav>

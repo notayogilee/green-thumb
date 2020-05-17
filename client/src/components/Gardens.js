@@ -5,9 +5,8 @@ import GardenDetails from './GardenDetails';
 
 export default function Garden(props) {
 
-  const { state } = userGardenData();
 
-  const gardens = state.gardens;
+  const gardens = props.gardens;
 
   function findUserGarden(id, gardens) {
 

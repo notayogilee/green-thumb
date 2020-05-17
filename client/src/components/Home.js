@@ -5,7 +5,7 @@ import SearchResults from './SearchResults';
 
 export default function Home(props) {
 
-  const { state } = useGardenData();
+  // const { state } = useGardenData();
 
   const [searchPlant, setSearchPlant] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -15,7 +15,7 @@ export default function Home(props) {
 
   useEffect(() => {
 
-    const results = state.plants.filter(plant =>
+    const results = props.plants.filter(plant =>
       plant.name.toLowerCase().includes(searchPlant)
     );
     setSearchResults(results);
