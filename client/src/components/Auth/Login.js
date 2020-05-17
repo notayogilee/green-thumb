@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import useGardenData from '../../hooks/useGardenData';
+// import useGardenData from '../../hooks/useGardenData';
 import "./Login.scss";
 import { Redirect } from 'react-router-dom';
 
 export default function Login(props) {
 
-  const { state } = useGardenData();
+  // const { state } = useGardenData();
+
+  console.log('props', props, 'state', state)
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

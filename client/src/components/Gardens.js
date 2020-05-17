@@ -1,11 +1,10 @@
 import React from 'react';
-import userGardenData from '../hooks/useGardenData';
 import GardenDetails from './GardenDetails';
 
 
 export default function Garden(props) {
 
-
+  console.log('gardens', props)
   const gardens = props.gardens;
 
   function findUserGarden(id, gardens) {

@@ -3,13 +3,10 @@ import { Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import axios from 'axios';
-// import Register from './components/Auth/Register';
 import Register_NEW from './components/Auth/Register_NEW';
-// import Login from './components/Auth/Login';
 import Login_NEW from './components/Auth/Login_NEW';
 
 import Gardens from './components/Gardens';
-// import GardenDetails from './components/GardenDetails';
 import PlantListItem from './components/PlantListItem';
 
 import useGardenData from './hooks/useGardenData';
@@ -55,7 +52,7 @@ function App() {
   return (
 
     <div>
-      <Navbar handleLogoutClick={handleLogoutClick} />
+      <Navbar loggedInUser={state.user} handleLogoutClick={handleLogoutClick} />
       <Switch>
 
         <Route path='/login' render={(props) => <Login_NEW {...props} handleSuccessfulAuth={handleSuccessfulAuth} />} />
@@ -64,11 +61,7 @@ function App() {
           path='/gardens'
           render={(props) => <Gardens {...props} gardens={state.gardens} />}
         />
-
-
         <Route path='/plant' component={PlantListItem} />
-
-
         <Route path='/' render={(props) => <Home {...props} plants={state.plants} />} />
 
         {/* <Route path='/login' component={Login} /> */}

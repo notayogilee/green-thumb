@@ -27,11 +27,9 @@ export default function GardenDetails(props) {
     />
   );
 
-
-  console.log(plants)
   return (
     <div>
-      <button onClick={() => findGarden(props.id)}>{props.title}</button>
+      <Button name={props.title} onclick={() => findGarden(props.id)}></Button>
 
       <ul>{plantCard}</ul>
     </div>

@@ -16,7 +16,6 @@ export default function Login(props) {
   // const { loggedInState, handleSuccessfulAuth, checkLoginStatus } = useLoggedInState()
 
 
-
   // "loginErrors" is clint-side only //
   const [user, setUser] = useState({
     email: "",
@@ -24,6 +23,7 @@ export default function Login(props) {
     loginErrors: ""
   });
 
+  console.log('LoginNew', props)
 
   const handleChange = (event) => {
     setUser({

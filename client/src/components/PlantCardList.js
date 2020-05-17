@@ -1,6 +1,7 @@
 import React from 'react';
 import useGardenData from '../hooks/useGardenData';
 import { useHistory } from 'react-router-dom';
+import Button from './Button';
 
 export default function PlantCardList(props) {
 
@@ -23,23 +24,29 @@ export default function PlantCardList(props) {
 
   return (
 
-    <div>
+    // <div>
 
-      <form className="form"
-        onSubmit={event => {
-          event.preventDefault();
-        }
-        }>
-
+    <form className="form"
+      onSubmit={event => {
+        event.preventDefault();
+      }
+      }>
+      <div class="row">
         <h3>{props.name}</h3>
+        <div class="col s1"><img src={props.img} alt="img"></img></div>
+        <Button name="More Info" onclick={() => handleShow(props.id)}></Button>
+      </div>
 
-        <button onClick={() => handleShow(props.id)}>MoreInfo</button>
 
-        <img src={props.img} alt="img"></img>
+      {/* <h3>{props.name}</h3>
 
-      </form>
+        <Button name="More Info" onclick={() => handleShow(props.id)}></Button>
 
-    </div>
+        <img src={props.img} alt="img"></img> */}
+
+    </form>
+
+    // </div>
   )
 
 }

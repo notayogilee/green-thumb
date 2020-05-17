@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import useGardenData from '../hooks/useGardenData';
 import PlantCard from './PlantCard';
 import SearchResults from './SearchResults';
 
 export default function Home(props) {
 
-  // const { state } = useGardenData();
+
+  console.log("home props", props)
 
   const [searchPlant, setSearchPlant] = useState('');
   const [searchResults, setSearchResults] = useState([]);
