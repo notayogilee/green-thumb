@@ -34,7 +34,9 @@ export default function Home(props) {
 
       {searchPlant.length === 0 &&
 
-        <PlantCard />
+        <PlantCard
+          loggedInUser={props.loggedInUser}
+        />
       }
 
       <ul>

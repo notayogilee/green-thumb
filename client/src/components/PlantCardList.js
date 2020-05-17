@@ -7,6 +7,8 @@ export default function PlantCardList(props) {
 
   const { state } = useGardenData();
 
+  console.log(' PLI: ', props)
+
   const history = useHistory();
 
   function getPlantData(allPlants, plantId) {
@@ -35,6 +37,12 @@ export default function PlantCardList(props) {
         <h3>{props.name}</h3>
         <div class="col s1"><img src={props.img} alt="img"></img></div>
         <Button name="More Info" onclick={() => handleShow(props.id)}></Button>
+        {props.loggedInUser.logged_in &&
+          <>
+            <Button name="Add Plant" onclick={() => handleShow(props.id)}></Button>
+            <Button name="Remove Plant" onclick={() => handleShow(props.id)}></Button>
+          </>
+        }
       </div>
 
 

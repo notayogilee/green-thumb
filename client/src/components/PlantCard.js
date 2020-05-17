@@ -13,6 +13,7 @@ export default function PlantCard(props) {
       id={plant.id}
       img={plant.image_url}
       name={plant.name}
+      loggedInUser={props.loggedInUser}
     />
   );
 

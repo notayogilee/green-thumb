@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import PlantCardList from './PlantCardList';
 import Button from './Button';
@@ -26,9 +27,11 @@ export default function GardenDetails(props) {
     />
   );
 
+
+  console.log(plants)
   return (
     <div>
-      <Button name={props.title} onclick={() => findGarden(props.id)}></Button>
+      <button onClick={() => findGarden(props.id)}>{props.title}</button>
 
       <ul>{plantCard}</ul>
     </div>

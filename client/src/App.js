@@ -61,8 +61,11 @@ function App() {
           path='/gardens'
           render={(props) => <Gardens {...props} gardens={state.gardens} loggedInUser={state.user} />}
         />
-        <Route path='/plant' component={PlantListItem} />
-        <Route path='/' render={(props) => <Home {...props} plants={state.plants} />} />
+        {/* <Route path='/plant' component={PlantListItem} /> */}
+
+        <Route path='/plant' render={(props) => <PlantListItem {...props} plants={state.plants} loggedInUser={state.user} />} />
+
+        <Route path='/' render={(props) => <Home {...props} plants={state.plants} loggedInUser={state.user} />} />
 
         {/* <Route path='/login' component={Login} /> */}
         {/* <Route path='/register' component={Register} /> */}
