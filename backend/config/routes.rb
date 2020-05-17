@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get '/gardens' => 'gardens#all_gardens'
   get '/plants', to: 'plants#all_plants'
   get '/plants/:id', to: 'plants#show_original'
+  post '/gardens/:garden_id/plants/:id', to:'plants#create'
   # resources :gardens do
   #   collection do
   #     get :all_gardens
