@@ -37,9 +37,15 @@ export default function PlantCardList(props) {
         <h3>{props.name}</h3>
         <div class="col s1"><img src={props.img} alt="img"></img></div>
         <Button name="More Info" onclick={() => handleShow(props.id)}></Button>
-        {props.loggedInUser.logged_in &&
+        wateringTime{props.wateringTime}
+        {props.loggedInUser && props.loggedInUser.logged_in && props.wateringTime === undefined &&
           <>
             <Button name="Add Plant" onclick={() => handleShow(props.id)}></Button>
+          </>
+        }
+        {props.loggedInUser && props.loggedInUser.logged_in && props.wateringTime &&
+
+          <>
             <Button name="Remove Plant" onclick={() => handleShow(props.id)}></Button>
           </>
         }

@@ -26,7 +26,7 @@ export default function PlantList(props) {
       transplanting={plant.transplanting}
       watering={plant.watering}
       when_to_plant={plant.when_to_plant}
-
+      watering_time={plant.watering_time}
     />
   );
 

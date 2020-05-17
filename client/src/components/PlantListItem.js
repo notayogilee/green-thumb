@@ -23,7 +23,7 @@ export default function PlantListItem(props) {
       <p>{props.location.state.storage}</p>
       <p>{props.location.state.transplanting}</p>
       <p>{props.location.state.when_to_plant}</p>
-
+      <p>{props.location.state.watering_time}</p>
     </div >
   )
 }

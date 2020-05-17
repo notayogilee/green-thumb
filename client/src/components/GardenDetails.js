@@ -24,6 +24,7 @@ export default function GardenDetails(props) {
       id={plant.id}
       img={plant.image_url}
       name={plant.name}
+      wateringTime={plant.watering_time}
     />
   );
 
