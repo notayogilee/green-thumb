@@ -9,11 +9,13 @@ export default function PlantCard(props) {
   const plantCard = state.plants.map(plant =>
 
     <PlantCardList
+      {...props}
       key={plant.id}
       id={plant.id}
       img={plant.image_url}
       name={plant.name}
       loggedInUser={props.loggedInUser}
+      gardenId={props.gardenId}
     />
   );
 

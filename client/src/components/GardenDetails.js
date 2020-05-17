@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import PlantCardList from './PlantCardList';
 import Button from './Button';
-
+import AllPlants from './AllPlants';
 
 export default function GardenDetails(props) {
 
   const [plants, setPlants] = useState([])
+  const [addPlant, setAddPlant] = useState(false)
 
   console.log('props', props)
 
@@ -25,6 +26,7 @@ export default function GardenDetails(props) {
       img={plant.image_url}
       name={plant.name}
       wateringTime={plant.watering_time}
+      gardenId={props.id}
     />
   );
 
@@ -33,8 +35,17 @@ export default function GardenDetails(props) {
   return (
     <div>
       <button onClick={() => findGarden(props.id)}>{props.title}</button>
-
-      <ul>{plantCard}</ul>
+      <button onClick={() => setAddPlant(!addPlant)}>Add Plant</button>
+      {!addPlant &&
+        <ul>{plantCard}</ul>
+      }
+      {addPlant &&
+        <AllPlants
+          loggedInUser={props.loggedInUser}
+          plants={props.plants}
+          gardenId={props.id}
+        />
+      }
     </div>
   )
 }

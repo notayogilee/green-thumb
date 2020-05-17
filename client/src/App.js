@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Home from './components/Home';
+import AllPlants from './components/AllPlants';
 import axios from 'axios';
 import Register_NEW from './components/Auth/Register_NEW';
 import Login_NEW from './components/Auth/Login_NEW';
@@ -59,13 +59,13 @@ function App() {
         <Route path='/register' render={(props) => <Register_NEW {...props} handleSuccessfulAuth={handleSuccessfulAuth} />} />
         <Route
           path='/gardens'
-          render={(props) => <Gardens {...props} gardens={state.gardens} loggedInUser={state.user} />}
+          render={(props) => <Gardens {...props} gardens={state.gardens} plants={state.plants} loggedInUser={state.user} />}
         />
         {/* <Route path='/plant' component={PlantListItem} /> */}
 
         <Route path='/plant' render={(props) => <PlantListItem {...props} plants={state.plants} loggedInUser={state.user} />} />
 
-        <Route path='/' render={(props) => <Home {...props} plants={state.plants} loggedInUser={state.user} />} />
+        <Route path='/' render={(props) => <AllPlants {...props} plants={state.plants} />} />
 
         {/* <Route path='/login' component={Login} /> */}
         {/* <Route path='/register' component={Register} /> */}

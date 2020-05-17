@@ -22,6 +22,7 @@ export default function Garden(props) {
       title={garden.title}
       location={garden.location}
       loggedInUser={props.loggedInUser}
+      plants={props.plants}
     />
   )
 
