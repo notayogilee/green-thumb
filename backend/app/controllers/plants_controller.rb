@@ -36,10 +36,21 @@ class PlantsController < ApplicationController
   end
 
   
-  # POST /plants
+  # POST /gardens/:garden_id/plants
   def create
-    @plant = Plant.create!(plant_params)
-    json_response(@plant, :created)
+    garden_id = params[:garden_id]
+    plant_id = params[:id]
+    @garden = Garden.find(garden_id)
+    plant = Plant.find(plant_id)
+    watering_time = params["watering_time"]
+    @garden_plant = @garden.garden_plants.create!(
+      watering_time: watering_time,
+      plant_id: plant_id
+    )
+    # w_times = @garden_plant.attributes
+    # w_times[:watering_time] = watering_time
+    json_response(@garden_plant, :created)
+    # json_response(w_times, :created)
   end
 
   def show_original
@@ -64,18 +75,39 @@ class PlantsController < ApplicationController
   end
 
   # STRETCH
-  # PUT /plants/:id
-  # def update
-  #   @plant.update(plant_params)
-  #   head :no_content
-  # end
+  # PUT /gardens/:garden_id/plants/:id
+
+  def update
+    garden_id = params[:garden_id]
+    @garden = Garden.find(garden_id)
+    plant_id = params[:id]
+    watering_time = params[:watering_time]
+    target_plant = GardenPlant.where(
+      {garden_id: garden_id,
+         plant_id: plant_id}).first
+    target_plant.watering_time = watering_time
+    target_plant.save!
+
+    # @plant.update(plant_params)
+    # @plant.update(plant_params)
+    # head :no_content
+    json_response(target_plant)
+
+  end
 
   # STRETCH
   # DELETE /plants/:id
-  # def destroy
-  #   @plant.destroy
-  #   head :no_content
-  # end
+  def destroy
+    garden_id = params[:garden_id]
+    @garden = Garden.find(garden_id)
+    plant_id = params[:id]
+    target_plant = GardenPlant.where(
+      {garden_id: garden_id,
+         plant_id: plant_id}).first
+    target_plant.destroy!
+    # head :no_content
+    json_response( { Plant: "plant removed" } )
+  end
 
   private
 
@@ -98,7 +130,14 @@ class PlantsController < ApplicationController
       :pests,
       :harvesting,
       :storage_use,
-      :image_url)
+      :image_url,
+      :watering_time)
+  end
+
+  def garden_plant_params
+    params.permit(
+      :garden_id,
+      :plant_id)
   end
 
   def set_plant
