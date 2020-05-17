@@ -46,7 +46,9 @@ function Navbar(props) {
                 </Link>
               </li>
               <li>
-                <Button name="logout" onclick={() => props.handleLogoutClick()} />
+                <Link to="/">
+                  <Button name="logout" onclick={() => props.handleLogoutClick()} />
+                </Link>
               </li>
             </>
           }

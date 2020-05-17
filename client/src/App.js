@@ -18,7 +18,7 @@ function App() {
   const { state, setState } = useGardenData();
 
   const handleSuccessfulAuth = userData => {
-    console.log("Adding the user to the state", setState);
+    // console.log("Adding the user to the state", setState);
     setState({
       ...state,
       user: userData
@@ -56,10 +56,10 @@ function App() {
       <Switch>
 
         <Route path='/login' render={(props) => <Login_NEW {...props} handleSuccessfulAuth={handleSuccessfulAuth} />} />
-        <Route path='/register' component={(props) => <Register_NEW {...props} handleSuccessfulAuth={handleSuccessfulAuth} />} />
+        <Route path='/register' render={(props) => <Register_NEW {...props} handleSuccessfulAuth={handleSuccessfulAuth} />} />
         <Route
           path='/gardens'
-          render={(props) => <Gardens {...props} gardens={state.gardens} />}
+          render={(props) => <Gardens {...props} gardens={state.gardens} loggedInUser={state.user} />}
         />
         <Route path='/plant' component={PlantListItem} />
         <Route path='/' render={(props) => <Home {...props} plants={state.plants} />} />
