@@ -3,12 +3,13 @@ import useGardenData from '../hooks/useGardenData';
 import { useHistory } from 'react-router-dom';
 import Button from './Button';
 import axios from 'axios';
+import Timer from './Timer';
 
 export default function PlantCardList(props) {
 
   const { state } = useGardenData();
 
-
+  console.log('WT', props)
 
   const history = useHistory();
 
@@ -19,6 +20,11 @@ export default function PlantCardList(props) {
     const plant = selectedPlant[0];
     return plant;
   }
+  // useEffect(() => {
+  //   axios.get('http://api.openweathermap.org/data/2.5/weather?q=montreal&appid=a2662e448644542c9ee3b85b621ce010')
+  // })
+  //   .then(res => console.log((res.data)))
+  //   .catch((err) => console.log(err))
 
   function addPlant(targetGardenId, targetPlantId) {
     console.log(' axios: ', props)
@@ -47,7 +53,7 @@ export default function PlantCardList(props) {
         event.preventDefault();
       }
       }>
-      <div class="row">
+      <div class="col s5">
         <h3>{props.name}</h3>
         <div class="col s1"><img src={props.img} alt="img"></img></div>
         <Button name="More Info" onclick={() => handleShow(props.id)}></Button>
@@ -62,6 +68,9 @@ export default function PlantCardList(props) {
 
           <>
             <Button name="Remove Plant" onclick={() => removePlant(props.gardenId, props.id)}></Button>
+            <Timer
+              wateringTime={props.wateringTime}
+            />
           </>
         }
       </div>

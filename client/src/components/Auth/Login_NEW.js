@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Button from '../Button';
+import { Link, Redirect } from 'react-router-dom';
 
 import "./Login.scss";
 
@@ -53,6 +55,7 @@ export default function Login(props) {
           props.handleSuccessfulAuth(res.data)
         }
 
+
       })
       .catch(err => {
         console.log("Login Error", err)
@@ -85,7 +88,7 @@ export default function Login(props) {
             required
           />
 
-          <button type="submit" onSubmit={handleSubmit}> Login </button>
+          <Button name="Login" type="submit" onSubmit={handleSubmit}></Button>
 
         </div>
       </form>
