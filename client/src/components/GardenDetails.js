@@ -4,6 +4,8 @@ import axios from 'axios';
 import PlantCardList from './PlantCardList';
 import Button from './Button';
 import AllPlants from './AllPlants';
+import GardenUpdate from './GardenUpdate';
+import GardenDelete from './GardenDelete';
 
 export default function GardenDetails(props) {
 
@@ -34,7 +36,17 @@ export default function GardenDetails(props) {
   console.log(plants)
   return (
     <div>
+      {/* <button onClick={() => addGarden()}>Add a New Garden [+]</button> */}
       <button onClick={() => findGarden(props.id)}>{props.title}</button>
+      Location: {props.location}
+      <GardenUpdate 
+        loggedInUser={props.loggedInUser} 
+        id={props.id}
+        title={props.title}
+        location={props.location}
+        updateGarden={props.updateGarden}
+        
+        />
       <button onClick={() => setAddPlant(!addPlant)}>Add Plant</button>
       {!addPlant &&
         <ul>{plantCard}</ul>
@@ -46,6 +58,14 @@ export default function GardenDetails(props) {
           gardenId={props.id}
         />
       }
+      <GardenDelete
+        loggedInUser={props.loggedInUser} 
+        id={props.id}
+        deleteGarden={props.deleteGarden}
+       />
+       <br />
+       <br />
+       <br />
     </div>
   )
 }
