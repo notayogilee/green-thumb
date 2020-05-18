@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Button from '../Button';
 
 // import useLoggedInState from '../../hooks/useLoggedInState';
 
@@ -101,7 +102,7 @@ export default function Register(props) {
             required
           />
 
-          <button type="submit"> Register </button>
+          <Button name="Register" type="submit"> Register </Button>
 
         </div>
       </form>

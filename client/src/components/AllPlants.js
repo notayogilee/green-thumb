@@ -25,12 +25,25 @@ export default function AllPlants(props) {
   return (
     <div>
 
-      <input
-        type="text"
-        value={searchPlant}
-        placeholder="Which plant would you like?"
-        onChange={handleChange}>
-      </input>
+      <nav>
+        <div class="nav-wrapper">
+          <form>
+            <div class="input-field">
+              <input
+                class="center"
+                id="search"
+                type="search"
+                value={searchPlant}
+                placeholder="Search for a plant"
+                onChange={handleChange}>
+              </input>
+              <label class="center label-icon" for="search"><i class="material-icons">search</i></label>
+            </div>
+          </form>
+        </div>
+      </nav>
+
+
 
       {searchPlant.length === 0 &&
 

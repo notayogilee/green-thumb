@@ -15,8 +15,6 @@ export default function GardenDetails(props) {
   const [weather, setWeather] = useState({});
   const [weatherDetails, setWeatherDetails] = useState({});
 
-  console.log(props)
-
   useEffect(() => {
     axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${props.location}&units=metric&appid=a2662e448644542c9ee3b85b621ce010`)
       .then(res => {
@@ -56,22 +54,17 @@ export default function GardenDetails(props) {
 
   return (
     <div>
-<<<<<<< HEAD
-
-
-=======
       {/* <button onClick={() => addGarden()}>Add a New Garden [+]</button> */}
->>>>>>> master
       <button onClick={() => findGarden(props.id)}>{props.title}</button>
       Location: {props.location}
-      <GardenUpdate 
-        loggedInUser={props.loggedInUser} 
+      <GardenUpdate
+        loggedInUser={props.loggedInUser}
         id={props.id}
         title={props.title}
         location={props.location}
         updateGarden={props.updateGarden}
-        
-        />
+
+      />
       <button onClick={() => setAddPlant(!addPlant)}>Add Plant</button>
 
       <img src={weatherImg} />
@@ -89,13 +82,13 @@ export default function GardenDetails(props) {
         />
       }
       <GardenDelete
-        loggedInUser={props.loggedInUser} 
+        loggedInUser={props.loggedInUser}
         id={props.id}
         deleteGarden={props.deleteGarden}
-       />
-       <br />
-       <br />
-       <br />
+      />
+      <br />
+      <br />
+      <br />
     </div>
   )
 }
