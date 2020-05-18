@@ -17,6 +17,43 @@ function App() {
 
   const { state, setState } = useGardenData();
 
+
+  const addNewGarden = function (gardenData) {
+    console.log("from Component Garden ", gardenData)
+    // console.log("from Component Garden (2)", gardens)
+    
+    // setGardens(...gardens, data)
+    setState({
+      ...state,
+      gardens: [...state.gardens, gardenData]
+    });
+
+  }
+
+  const updateGarden = function(gardenData) {
+    setState({
+      ...state,
+      gardens: state.gardens.map(garden => {
+
+        // if they are the same id => update
+        if (garden.id === gardenData.id) {
+          return gardenData;
+        }
+
+        return garden;
+
+      })
+    })
+  }
+
+
+  const deleteGarden = function(gardenId) {
+    setState({
+      ...state,
+      gardens: state.gardens.filter(garden => garden.id !== gardenId)
+    });
+  }
+
   const handleSuccessfulAuth = userData => {
     // console.log("Adding the user to the state", setState);
     setState({
@@ -59,7 +96,14 @@ function App() {
         <Route path='/register' render={(props) => <Register_NEW {...props} handleSuccessfulAuth={handleSuccessfulAuth} />} />
         <Route
           path='/gardens'
-          render={(props) => <Gardens {...props} gardens={state.gardens} plants={state.plants} loggedInUser={state.user} />}
+          render={(props) => <Gardens 
+            {...props} 
+            gardens={state.gardens} 
+            plants={state.plants} 
+            loggedInUser={state.user} 
+            addNewGarden={addNewGarden}
+            updateGarden={updateGarden}
+            deleteGarden={deleteGarden} />}
         />
         {/* <Route path='/plant' component={PlantListItem} /> */}
 
