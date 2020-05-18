@@ -25,20 +25,23 @@ class GardensController < ApplicationController
 
   # POST /users/:user_id/gardens
   def create
-    @user.gardens.create!(garden_params)
-    json_response(@user, :created)
+    @garden = @user.gardens.create!(garden_params)
+    json_response(@garden, :created)
   end
 
   # PUT /users/:user_id/gardens/:id
   def update
     @garden.update(garden_params)
-    head :no_content
+    # head :no_content
+    json_response(@garden, :created)
   end
 
   # DELETE /users/:user_id/gardens/:id
   def destroy
     @garden.destroy
-    head :no_content
+    # head :no_content
+    json_response( { Garden: "Garden removed" } )
+
   end
 
   private
