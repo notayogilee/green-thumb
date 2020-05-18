@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import PlantCardList from './PlantCardList';
@@ -10,7 +10,29 @@ export default function GardenDetails(props) {
   const [plants, setPlants] = useState([])
   const [addPlant, setAddPlant] = useState(false)
 
-  console.log('props', props)
+  const [weather, setWeather] = useState({});
+  const [weatherDetails, setWeatherDetails] = useState({});
+
+  console.log(props)
+
+  useEffect(() => {
+    axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${props.location}&units=metric&appid=a2662e448644542c9ee3b85b621ce010`)
+      .then(res => {
+        setWeather(res.data.main);
+        setWeatherDetails(res.data.weather[0]);
+      })
+      .catch((err) => console.log(err))
+  }, [])
+
+  const minTemp = parseInt(weather.temp_min);
+  const maxTemp = parseInt(weather.temp_max);
+  const currentTemp = parseInt(weather.temp);
+
+  // console.log(maxTemp, minTemp, currentTemp)
+  const weatherImg = `http://openweathermap.org/img/wn/${weatherDetails.icon}@2x.png`;
+  const description = weatherDetails.description;
+
+  console.log(weatherImg, description)
 
   const findGarden = (gardenId) => {
     axios.get(`/gardens/${gardenId}/plants`)
@@ -30,12 +52,17 @@ export default function GardenDetails(props) {
     />
   );
 
-
-  console.log(plants)
   return (
     <div>
+
+
       <button onClick={() => findGarden(props.id)}>{props.title}</button>
       <button onClick={() => setAddPlant(!addPlant)}>Add Plant</button>
+
+      <img src={weatherImg} />
+      <h6>{description}</h6>
+      <h4>Temperature {currentTemp}</h4>
+      <h6>Min {minTemp} Max {maxTemp}</h6>
       {!addPlant &&
         <ul>{plantCard}</ul>
       }

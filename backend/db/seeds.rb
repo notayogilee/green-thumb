@@ -41,13 +41,13 @@ Garden.create([
 # TABLE Garden_Plants
 # { garden_id: , plant_id: , watering_time: '' },
 GardenPlant.create([
-  { garden_id: 1, plant_id: 39, watering_time: '08:00:00' },
-  { garden_id: 1, plant_id: 3, watering_time: '07:00:00' },
-  { garden_id: 1, plant_id: 9, watering_time: '08:45:00' },
-  { garden_id: 2, plant_id: 18, watering_time: '09:00:00' },
-  { garden_id: 2, plant_id: 21, watering_time: '06:00:00' },
-  { garden_id: 2, plant_id: 38, watering_time: '22:00:00' },
-  { garden_id: 3, plant_id: 1, watering_time: '11:00:00' },
-  { garden_id: 3, plant_id: 3, watering_time: '20:00:00' },
-  { garden_id: 3, plant_id: 30, watering_time: '18:30:00' }
+  { garden_id: 1, plant_id: 39, watering_time: 1 },
+  { garden_id: 1, plant_id: 3, watering_time: 2 },
+  { garden_id: 1, plant_id: 9, watering_time: 3 },
+  { garden_id: 2, plant_id: 18, watering_time: 1 },
+  { garden_id: 2, plant_id: 21, watering_time: 2 },
+  { garden_id: 2, plant_id: 38, watering_time: 3 },
+  { garden_id: 3, plant_id: 1, watering_time: 4 },
+  { garden_id: 3, plant_id: 3, watering_time: 1 },
+  { garden_id: 3, plant_id: 30, watering_time: 5 }
 ])

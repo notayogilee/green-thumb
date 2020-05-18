@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_05_14_181803) do
   create_table "garden_plants", force: :cascade do |t|
     t.bigint "garden_id"
     t.bigint "plant_id"
-    t.time "watering_time"
+    t.bigint "watering_time"
     t.index ["garden_id"], name: "index_garden_plants_on_garden_id"
     t.index ["plant_id"], name: "index_garden_plants_on_plant_id"
   end

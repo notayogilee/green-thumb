@@ -20,11 +20,7 @@ export default function PlantCardList(props) {
     const plant = selectedPlant[0];
     return plant;
   }
-  // useEffect(() => {
-  //   axios.get('http://api.openweathermap.org/data/2.5/weather?q=montreal&appid=a2662e448644542c9ee3b85b621ce010')
-  // })
-  //   .then(res => console.log((res.data)))
-  //   .catch((err) => console.log(err))
+
 
   function addPlant(targetGardenId, targetPlantId) {
     console.log(' axios: ', props)
