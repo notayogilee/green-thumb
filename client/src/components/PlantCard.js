@@ -14,13 +14,15 @@ export default function PlantCard(props) {
       id={plant.id}
       img={plant.image_url}
       name={plant.name}
+      description={plant.description}
       loggedInUser={props.loggedInUser}
       gardenId={props.gardenId}
     />
   );
 
   return (
-    <ul>{plantCard}</ul>
+
+    plantCard
 
   )
 }

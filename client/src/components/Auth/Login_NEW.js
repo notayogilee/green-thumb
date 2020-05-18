@@ -63,9 +63,14 @@ export default function Login(props) {
 
     // console.log("loggedInState (AFTER) : ", loggedInState)
   };
-
+  console.log(props)
   return (
+
     <div>
+      {props.loggedInUser.logged_in &&
+
+        <Redirect to='/' />
+      }
       <center> <h1> Login </h1> </center>
       <form className="form" onSubmit={handleSubmit}>
         <div className="container login-form">

@@ -55,7 +55,7 @@ function App() {
       <Navbar loggedInUser={state.user} handleLogoutClick={handleLogoutClick} />
       <Switch>
 
-        <Route path='/login' render={(props) => <Login_NEW {...props} handleSuccessfulAuth={handleSuccessfulAuth} />} />
+        <Route path='/login' render={(props) => <Login_NEW {...props} loggedInUser={state.user} handleSuccessfulAuth={handleSuccessfulAuth} />} />
         <Route path='/register' render={(props) => <Register_NEW {...props} handleSuccessfulAuth={handleSuccessfulAuth} />} />
         <Route
           path='/gardens'

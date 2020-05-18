@@ -42,45 +42,81 @@ export default function PlantCardList(props) {
 
   return (
 
-    // <div>
+
 
     <form className="form"
       onSubmit={event => {
         event.preventDefault();
       }
       }>
-      <div class="col s5">
-        <h3>{props.name}</h3>
-        <div class="col s1"><img src={props.img} alt="img"></img></div>
-        <Button name="More Info" onclick={() => handleShow(props.id)}></Button>
 
-        {props.loggedInUser && props.loggedInUser.logged_in && props.wateringTime === undefined &&
-          <>
-            <Button name="Add Plant" onclick={() => addPlant(props.gardenId, props.id)}></Button>
 
-          </>
-        }
-        {props.wateringTime !== undefined &&
+      {/* <div class="col s12 m8 offset-m2 l6 offset-l3">
+        <div class="card-panel grey lighten-5 z-depth-1">
+          <div class="row valign-wrapper">
+            <div class="col s2">
+              <img src={props.img} alt="img" class="circle responsive-img" />
+            </div>
+            <div class="col s10">
+              <h3>{props.name}<Button name="More Info" onclick={() => handleShow(props.id)}></Button></h3>
+              <span class="black-text">
+                {props.description}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div> */}
 
-          <>
-            <Button name="Remove Plant" onclick={() => removePlant(props.gardenId, props.id)}></Button>
-            <Timer
-              wateringTime={props.wateringTime}
-            />
-          </>
-        }
+      <div class="col s12 m8 offset-m2 l6 offset-l3">
+        <div class="card-panel grey lighten-5 z-depth-1">
+          <div class="row valign-wrapper">
+            <div class="col s2">
+              <img src={props.img} alt="" class="circle responsive-img" />
+            </div>
+            <div class="col s10">
+              <h4>{props.name}</h4>
+              <span class="black-text">
+                {props.description}
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
 
 
-      {/* <h3>{props.name}</h3>
+      {/* <div class="container">
+        <div class="row s2">
+          <img src={props.img} alt="img" class="circle responsive-img" />
+          </div>
+      </div> */}
 
-        <Button name="More Info" onclick={() => handleShow(props.id)}></Button>
 
-        <img src={props.img} alt="img"></img> */}
+
+
+
+
+
+      {
+        props.loggedInUser && props.loggedInUser.logged_in && props.wateringTime === undefined &&
+        <>
+          <Button name="Add Plant" onclick={() => addPlant(props.gardenId, props.id)}></Button>
+
+        </>
+      }
+      {
+        props.wateringTime !== undefined &&
+
+        <>
+          <Button name="Remove Plant" onclick={() => removePlant(props.gardenId, props.id)}></Button>
+          <Timer
+            wateringTime={props.wateringTime}
+          />
+        </>
+      }
 
     </form>
 
-    // </div>
+
   )
 
 }
