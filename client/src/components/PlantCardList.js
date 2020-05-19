@@ -64,29 +64,31 @@ export default function PlantCardList(props) {
               </span>
               <br />
               <Button name="More Info" onclick={() => handleShow(props.id)}></Button>
+              {
+                props.loggedInUser && props.loggedInUser.logged_in && props.wateringTime === undefined &&
+                <>
+                  <Button name="Add Plant" onclick={() => addPlant(props.gardenId, props.id)}></Button>
+
+                </>
+              }
+              {
+                props.wateringTime !== undefined &&
+
+                <>
+                  <Button name="Remove Plant" onclick={() => removePlant(props.gardenId, props.id)}></Button>
+                  <Timer
+                    wateringTime={props.wateringTime}
+                  />
+                </>
+              }
             </div>
           </div>
         </div>
       </div>
 
 
-      {
-        props.loggedInUser && props.loggedInUser.logged_in && props.wateringTime === undefined &&
-        <>
-          <Button name="Add Plant" onclick={() => addPlant(props.gardenId, props.id)}></Button>
 
-        </>
-      }
-      {
-        props.wateringTime !== undefined &&
 
-        <>
-          <Button name="Remove Plant" onclick={() => removePlant(props.gardenId, props.id)}></Button>
-          <Timer
-            wateringTime={props.wateringTime}
-          />
-        </>
-      }
 
     </form>
 
