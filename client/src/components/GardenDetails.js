@@ -55,7 +55,6 @@ export default function GardenDetails(props) {
       <div className="card medium">
       <div className="row">
       <div className="col s24">
-
       <GardenUpdate 
         loggedInUser={props.loggedInUser} 
         id={props.id}
@@ -73,6 +72,7 @@ export default function GardenDetails(props) {
         />
         </div>
         </div>
+        <h5>{props.title}</h5>
 
         <div className="container">
        <h6> Location: </h6>
@@ -84,7 +84,7 @@ export default function GardenDetails(props) {
         </div>
       </div>
       <br />
-      <button onClick={() => findGarden(props.id)}>{props.title}</button>
+      <button onClick={() => findGarden(props.id)}>Show {props.title} plants</button>
       <button onClick={() => setAddPlant(!addPlant)}>Add Plant</button>
       {!addPlant &&
         <ul>{plantCard}</ul>
