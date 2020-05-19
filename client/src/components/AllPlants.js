@@ -77,6 +77,7 @@ export default function AllPlants(props) {
             when_to_plant={plant.when_to_plant}
             watering_time={plant.watering_time}
             clearSearch={clearSearch}
+            loggedInUser={props.loggedInUser}
           />
         ))}
       </ul>

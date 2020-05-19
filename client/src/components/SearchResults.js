@@ -21,7 +21,7 @@ export default function SearchResults(props) {
                   {props.description}
                 </span>
                 <br />
-                <Button name="More Info" onclick={(() => setShow(!show))}></Button>
+                <Button name="More Info" onclick={(() => { setShow(!show) })}></Button>
               </div>
             </div>
           </div>
@@ -31,6 +31,10 @@ export default function SearchResults(props) {
       {
         show &&
         <div class="col s12 m8 offset-m2 l6 offset-l3">
+          <Button name="Back" onclick={(() => {
+            setShow(!show);
+            props.clearSearch()
+          })}></Button>
           <div class="card-panel grey lighten-5 z-depth-1">
             <h2 class="center">{props.name}</h2>
             <div class="row valign-wrapper">
@@ -70,9 +74,10 @@ export default function SearchResults(props) {
             <h5>When to plant</h5>
             <p>{props.when_to_plant}</p>
             <p>{props.watering_time}</p>
-            <Button name="Home" onclick={() =>
-              setShow(!show)}
-            />
+            {/* <p><a class="center" href="/">Home</a></p> */}
+            <Link to="/gardens">
+              <Button name="gardens" />
+            </Link>
           </div>
         </div>
       }
