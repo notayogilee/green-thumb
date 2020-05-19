@@ -44,11 +44,15 @@ export default function Garden(props) {
       loggedInUser={props.loggedInUser} 
       addNewGarden={props.addNewGarden}
     />
-
-    <ul>
-      {mapUserGardens}
-    </ul>
-
+    <div className="row"> 
+      
+    {/* <div  className="col s24 m3 l3">  */}
+    <div> 
+      <ul>
+        {mapUserGardens}
+      </ul>
+    </div>
+    </div>
     </>
   )
 }

@@ -4,6 +4,7 @@ import axios from 'axios';
 import PlantCardList from './PlantCardList';
 import Button from './Button';
 import AllPlants from './AllPlants';
+import materialize from "materialize-css";
 /* 
   Props needed : 
     loggedInUser
@@ -44,35 +45,51 @@ export default function GardenAdd(props) {
   };
 //  onClick={() => setToggle(!toggle)}
   return (
-    <div>
-    <button onClick={() => setToggle(!toggle)}>Add a New Garden [+]</button>
+    <div className="row col s12">
+    <button className="waves-light btn col" onClick={() => setToggle(!toggle)}>Add a New Garden [+]</button>
       {
         toggle &&
-      <form className="form" onSubmit={submitGarden}>
-        <div className="container login-form">
+        <>
+        
+        <form onSubmit={submitGarden}>
+        <div className="col s1"></div>
+        <div className="row">
+
+
+        <div className="input-field col s3">
 
           <input
             type="text"
             name="title"
             value={garden.title}
-            placeholder="Enter your new garden's title"
+            // placeholder="Enter your new garden's title"
             onChange={handleChange}
             required
             />
+          <label for="title">title</label>
 
+          </div>
+          <div className="col s1"></div>
+        <div className="input-field col s2">
           <input
             type="text"
             name="location"
             value={garden.location}
-            placeholder="Enter your new garden's Location (city)"
+            // placeholder="location"
             onChange={handleChange}
             required
             />
+            <label for="location">location (city) </label>
 
-          <button type="submit"> Add Garden! </button>
+            </div>
+          <div className="col s1"></div>
+          <div className="col s1">
+          <button className="waves-effect waves-light btn" type="submit"> Add Garden! </button>
+            </div>
 
         </div>
       </form>
+      </>
     }
       </div>
   )

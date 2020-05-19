@@ -55,15 +55,11 @@ export default function GardenDetails(props) {
   );
 
   return (
-    <div>
-<<<<<<< HEAD
+    <div className="col s12 m3 l3">
+      <div className="card medium">
+      <div className="row">
+      <div className="col s24">
 
-
-=======
-      {/* <button onClick={() => addGarden()}>Add a New Garden [+]</button> */}
->>>>>>> master
-      <button onClick={() => findGarden(props.id)}>{props.title}</button>
-      Location: {props.location}
       <GardenUpdate 
         loggedInUser={props.loggedInUser} 
         id={props.id}
@@ -72,28 +68,38 @@ export default function GardenDetails(props) {
         updateGarden={props.updateGarden}
         
         />
-      <button onClick={() => setAddPlant(!addPlant)}>Add Plant</button>
+        </div>
+      <div className="col s24">
+      <GardenDelete
+        loggedInUser={props.loggedInUser} 
+        id={props.id}
+        deleteGarden={props.deleteGarden}
+        />
+        </div>
+        </div>
 
+        <div className="container">
+       <h6> Location: </h6>
+       <h6>{props.location} </h6>
       <img src={weatherImg} />
       <h6>{description}</h6>
-      <h4>Temperature {currentTemp}</h4>
-      <h6>Min {minTemp} Max {maxTemp}</h6>
+      <h5>Temperature {currentTemp} °C</h5>
+      <h6>Min: {minTemp} Max: {maxTemp}</h6>
+        </div>
+      </div>
+      <br />
+      <button onClick={() => findGarden(props.id)}>{props.title}</button>
+      <button onClick={() => setAddPlant(!addPlant)}>Add Plant</button>
       {!addPlant &&
         <ul>{plantCard}</ul>
       }
       {addPlant &&
         <AllPlants
-          loggedInUser={props.loggedInUser}
-          plants={props.plants}
-          gardenId={props.id}
+        loggedInUser={props.loggedInUser}
+        plants={props.plants}
+        gardenId={props.id}
         />
       }
-      <GardenDelete
-        loggedInUser={props.loggedInUser} 
-        id={props.id}
-        deleteGarden={props.deleteGarden}
-       />
-       <br />
        <br />
        <br />
     </div>
