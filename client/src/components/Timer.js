@@ -33,6 +33,7 @@ export default function Timer(props) {
 
   const currentDate = Date.now();
 
+  console.log(props.wateringTime)
 
   // watering-time 1 day = 86400;
   // daysDuration = 86400 / 86400 = 1

@@ -32,8 +32,6 @@ export default function GardenDetails(props) {
   const weatherImg = `http://openweathermap.org/img/wn/${weatherDetails.icon}@2x.png`;
   const description = weatherDetails.description;
 
-  console.log(weatherImg, description)
-
   const findGarden = (gardenId) => {
     axios.get(`/gardens/${gardenId}/plants`)
       .then(({ data: plants }) => {

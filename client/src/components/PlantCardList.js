@@ -21,7 +21,7 @@ export default function PlantCardList(props) {
 
 
   function addPlant(targetGardenId, targetPlantId) {
-    console.log(' axios: ', props)
+
     axios.post(`/gardens/${targetGardenId}/plants/${targetPlantId}`, { watering_time: null })
       .then(res => console.log('addPlant', res))
       .catch(err => console.log(err))
