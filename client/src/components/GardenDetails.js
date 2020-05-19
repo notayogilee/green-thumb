@@ -51,7 +51,6 @@ export default function GardenDetails(props) {
   );
 
   return (
-<<<<<<< HEAD
     <div className="col s12 m3 l3">
       <div className="card medium">
       <div className="row">
@@ -59,19 +58,10 @@ export default function GardenDetails(props) {
 
       <GardenUpdate 
         loggedInUser={props.loggedInUser} 
-=======
-    <div>
-      {/* <button onClick={() => addGarden()}>Add a New Garden [+]</button> */}
-      <button onClick={() => findGarden(props.id)}>{props.title}</button>
-      Location: {props.location}
-      <GardenUpdate
-        loggedInUser={props.loggedInUser}
->>>>>>> master
         id={props.id}
         title={props.title}
         location={props.location}
         updateGarden={props.updateGarden}
-<<<<<<< HEAD
         
         />
         </div>
@@ -83,11 +73,6 @@ export default function GardenDetails(props) {
         />
         </div>
         </div>
-=======
-
-      />
-      <button onClick={() => setAddPlant(!addPlant)}>Add Plant</button>
->>>>>>> master
 
         <div className="container">
        <h6> Location: </h6>
@@ -111,19 +96,8 @@ export default function GardenDetails(props) {
         gardenId={props.id}
         />
       }
-<<<<<<< HEAD
        <br />
        <br />
-=======
-      <GardenDelete
-        loggedInUser={props.loggedInUser}
-        id={props.id}
-        deleteGarden={props.deleteGarden}
-      />
-      <br />
-      <br />
-      <br />
->>>>>>> master
     </div>
   )
 }
