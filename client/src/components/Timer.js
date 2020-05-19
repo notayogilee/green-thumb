@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
+import Button from './Button';
 import "./TimerStyle.css";
 
 const minuteSeconds = 60;
@@ -32,6 +33,7 @@ export default function Timer(props) {
 
   const currentDate = Date.now();
 
+  console.log(props.wateringTime)
 
   // watering-time 1 day = 86400;
   // daysDuration = 86400 / 86400 = 1
@@ -40,54 +42,30 @@ export default function Timer(props) {
     stratTime: currentDate,
     endTime: currentDate + props.wateringTime * 24 * 60 * 60,
     remainingTime: props.wateringTime * 24 * 60 * 60,
-    daysDuration: null
+    keyDays: Math.floor(Math.random() * 1000 + 1),
+    keyHours: Math.floor(Math.random() * 1000 + 1),
+    keyMinutes: Math.floor(Math.random() * 1000 + 1),
+    keySeconds: Math.floor(Math.random() * 1000 + 1),
   });
-
-
-  // const [stratTime, setStratTime] = useState(Date.now());
-  // const [endTime, setEndtime] = useState(Date.now() + props.wateringTime * 24 * 60 * 60);
-  // const [remainingTime, setRemainingTime] = useState(endTime - stratTime);
-  // const [daysDuration, setDaysDuration] = useState(null);
-
-  useEffect(() => {
-
-    // const endTime = stratTime + props.wateringTime * 24 * 60 * 60; // use UNIX timestamp in seconds
-    // const remainingTime = endTime - stratTime;
-    // setRemainingTime(endTime - stratTime);
-    const days = Math.ceil(timerState.remainingTime / daySeconds);  //4
-
-    console.log("DAYS:", days, "remainingTime:", timerState.remainingTime);
-
-    // const daysDuration = days * daySeconds;
-    setTimerState({
-      ...timerState,
-      daysDuration: days * daySeconds //4 *  86400
-    })
-
-
-  }, [])
-
 
   function resetTime() {
 
-    const currentTime = Date.now();
-    // setStratTime(prev => currentTime);
-    // setEndTime(prev => )
+    setTimerState({
+      ...timerState,
+      keyDays: timerState.keyDays + 1,
+      keyHours: timerState.keyHours + 1,
+      keyMinutes: timerState.keyMinutes + 1,
+      keySeconds: timerState.keySeconds + 1,
+    });
 
   }
 
-
-  // stratTime = resetTime(); // use UNIX timestamp in seconds
-
-  // duration={timerState.daysDuration}
-  // initialRemainingTime={timerState.remainingTime}
-
-
   return (
     <>
-      <button onClick={() => resetTime()}>Reset</button>
+      <Button name="Reset" onclick={() => resetTime()}>Reset</Button>
       <div className="App">
         <CountdownCircleTimer
+          key={timerState.keyDays}
           {...timerProps}
           colors={[["#7E2E84"]]}
           duration={timerState.daysDuration}
@@ -98,6 +76,7 @@ export default function Timer(props) {
           }
         </CountdownCircleTimer>
         <CountdownCircleTimer
+          key={timerState.keyHours}
           {...timerProps}
           colors={[["#D14081"]]}
           duration={daySeconds}
@@ -111,6 +90,7 @@ export default function Timer(props) {
           }
         </CountdownCircleTimer>
         <CountdownCircleTimer
+          key={timerState.keyMinutes}
           {...timerProps}
           colors={[["#EF798A"]]}
           duration={hourSeconds}
@@ -127,6 +107,7 @@ export default function Timer(props) {
           }
         </CountdownCircleTimer>
         <CountdownCircleTimer
+          key={timerState.keySeconds}
           {...timerProps}
           colors={[["#218380"]]}
           duration={minuteSeconds}

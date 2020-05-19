@@ -4,14 +4,15 @@ import SearchResults from './SearchResults';
 
 export default function AllPlants(props) {
 
-
-  console.log("home props", props)
-
   const [searchPlant, setSearchPlant] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const handleChange = event => {
     setSearchPlant(event.target.value);
   };
+
+  const clearSearch = function () {
+    setSearchPlant('');
+  }
 
   useEffect(() => {
 
@@ -25,12 +26,25 @@ export default function AllPlants(props) {
   return (
     <div>
 
-      <input
-        type="text"
-        value={searchPlant}
-        placeholder="Which plant would you like?"
-        onChange={handleChange}>
-      </input>
+      <nav>
+        <div class="nav-wrapper">
+          <form>
+            <div class="input-field">
+              <input
+                class="center"
+                id="search"
+                type="search"
+                value={searchPlant}
+                placeholder="Search for a plant"
+                onChange={handleChange}>
+              </input>
+              <label class="center label-icon" for="search"><i class="material-icons">search</i></label>
+            </div>
+          </form>
+        </div>
+      </nav>
+
+
 
       {searchPlant.length === 0 &&
 
@@ -44,8 +58,26 @@ export default function AllPlants(props) {
         {searchResults.length > 0 && searchResults.map(plant => (
           <SearchResults
             key={plant.id}
+            id={plant.id}
             name={plant.name}
+            description={plant.description}
+            feeding={plant.feeding}
+            diseases={plant.description}
+            growing_from_seed={plant.growing_from_seed}
+            harvesting={plant.harvesting}
             img={plant.image_url}
+            optimal_soil={plant.optimal_soil}
+            other_care={plant.other_care}
+            pests={plant.pests}
+            planting_considerations={plant.planting_considerations}
+            spacing={plant.spacing}
+            storage={plant.storage_use}
+            transplanting={plant.transplanting}
+            watering={plant.watering}
+            when_to_plant={plant.when_to_plant}
+            watering_time={plant.watering_time}
+            clearSearch={clearSearch}
+            loggedInUser={props.loggedInUser}
           />
         ))}
       </ul>

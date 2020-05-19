@@ -9,8 +9,6 @@ export default function PlantCardList(props) {
 
   const { state } = useGardenData();
 
-  console.log('WT', props)
-
   const history = useHistory();
 
   function getPlantData(allPlants, plantId) {
@@ -23,7 +21,7 @@ export default function PlantCardList(props) {
 
 
   function addPlant(targetGardenId, targetPlantId) {
-    console.log(' axios: ', props)
+
     axios.post(`/gardens/${targetGardenId}/plants/${targetPlantId}`, { watering_time: null })
       .then(res => console.log('addPlant', res))
       .catch(err => console.log(err))
@@ -38,6 +36,7 @@ export default function PlantCardList(props) {
   const handleShow = (plantId) => {
     let plantObject = getPlantData(state.plants, plantId)
     history.push('/plant', plantObject);
+    window.scrollTo(0, 0);
   }
 
   return (
@@ -47,28 +46,13 @@ export default function PlantCardList(props) {
     <form className="form"
       onSubmit={event => {
         event.preventDefault();
+
       }
       }>
 
 
-      {/* <div class="col s12 m8 offset-m2 l6 offset-l3">
-        <div class="card-panel grey lighten-5 z-depth-1">
-          <div class="row valign-wrapper">
-            <div class="col s2">
-              <img src={props.img} alt="img" class="circle responsive-img" />
-            </div>
-            <div class="col s10">
-              <h3>{props.name}<Button name="More Info" onclick={() => handleShow(props.id)}></Button></h3>
-              <span class="black-text">
-                {props.description}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
       <div class="col s12 m8 offset-m2 l6 offset-l3">
-        <div class="card-panel grey lighten-5 z-depth-1">
+        <div class="card-panel hoverable grey lighten-5 z-depth-1">
           <div class="row valign-wrapper">
             <div class="col s2">
               <img src={props.img} alt="" class="circle responsive-img" />
@@ -78,41 +62,33 @@ export default function PlantCardList(props) {
               <span class="black-text">
                 {props.description}
               </span>
+              <br />
+              <Button name="More Info" onclick={() => handleShow(props.id)}></Button>
+              {
+                props.loggedInUser && props.loggedInUser.logged_in && props.wateringTime === undefined &&
+                <>
+                  <Button name="Add Plant" onclick={() => addPlant(props.gardenId, props.id)}></Button>
+
+                </>
+              }
+              {
+                props.wateringTime !== undefined &&
+
+                <>
+                  <Button name="Remove Plant" onclick={() => removePlant(props.gardenId, props.id)}></Button>
+                  <Timer
+                    wateringTime={props.wateringTime}
+                  />
+                </>
+              }
             </div>
           </div>
         </div>
       </div>
 
 
-      {/* <div class="container">
-        <div class="row s2">
-          <img src={props.img} alt="img" class="circle responsive-img" />
-          </div>
-      </div> */}
 
 
-
-
-
-
-
-      {
-        props.loggedInUser && props.loggedInUser.logged_in && props.wateringTime === undefined &&
-        <>
-          <Button name="Add Plant" onclick={() => addPlant(props.gardenId, props.id)}></Button>
-
-        </>
-      }
-      {
-        props.wateringTime !== undefined &&
-
-        <>
-          <Button name="Remove Plant" onclick={() => removePlant(props.gardenId, props.id)}></Button>
-          <Timer
-            wateringTime={props.wateringTime}
-          />
-        </>
-      }
 
     </form>
 
