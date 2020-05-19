@@ -21,7 +21,7 @@ function App() {
   const addNewGarden = function (gardenData) {
     console.log("from Component Garden ", gardenData)
     // console.log("from Component Garden (2)", gardens)
-    
+
     // setGardens(...gardens, data)
     setState({
       ...state,
@@ -30,7 +30,7 @@ function App() {
 
   }
 
-  const updateGarden = function(gardenData) {
+  const updateGarden = function (gardenData) {
     setState({
       ...state,
       gardens: state.gardens.map(garden => {
@@ -47,7 +47,7 @@ function App() {
   }
 
 
-  const deleteGarden = function(gardenId) {
+  const deleteGarden = function (gardenId) {
     setState({
       ...state,
       gardens: state.gardens.filter(garden => garden.id !== gardenId)
@@ -96,11 +96,11 @@ function App() {
         <Route path='/register' render={(props) => <Register_NEW {...props} handleSuccessfulAuth={handleSuccessfulAuth} />} />
         <Route
           path='/gardens'
-          render={(props) => <Gardens 
-            {...props} 
-            gardens={state.gardens} 
-            plants={state.plants} 
-            loggedInUser={state.user} 
+          render={(props) => <Gardens
+            {...props}
+            gardens={state.gardens}
+            plants={state.plants}
+            loggedInUser={state.user}
             addNewGarden={addNewGarden}
             updateGarden={updateGarden}
             deleteGarden={deleteGarden} />}
@@ -109,7 +109,7 @@ function App() {
 
         <Route path='/plant' render={(props) => <PlantListItem {...props} plants={state.plants} loggedInUser={state.user} />} />
 
-        <Route path='/' render={(props) => <AllPlants {...props} plants={state.plants} />} />
+        <Route path='/' render={(props) => <AllPlants {...props} plants={state.plants} loggedInUser={state.user} />} />
 
         {/* <Route path='/login' component={Login} /> */}
         {/* <Route path='/register' component={Register} /> */}

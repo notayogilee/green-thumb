@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import "./TimerStyle.css";
 
@@ -49,23 +49,6 @@ export default function Timer(props) {
   // const [remainingTime, setRemainingTime] = useState(endTime - stratTime);
   // const [daysDuration, setDaysDuration] = useState(null);
 
-  useEffect(() => {
-
-    // const endTime = stratTime + props.wateringTime * 24 * 60 * 60; // use UNIX timestamp in seconds
-    // const remainingTime = endTime - stratTime;
-    // setRemainingTime(endTime - stratTime);
-    const days = Math.ceil(timerState.remainingTime / daySeconds);  //4
-
-    console.log("DAYS:", days, "remainingTime:", timerState.remainingTime);
-
-    // const daysDuration = days * daySeconds;
-    setTimerState({
-      ...timerState,
-      daysDuration: days * daySeconds //4 *  86400
-    })
-
-
-  }, [])
 
 
   function resetTime() {
