@@ -47,12 +47,9 @@ export default function PlantCardList(props) {
         <div className="card">
           <div className="card-image image">
             <img src={props.img} />
-            <span className="card-title">{props.name}</span>
-            <a onClick={() => handleShow(props.id)} className="btn-floating halfway-fab waves-effect waves-light green lighten-2"><i className="lni lni-question-circle"></i></a>
+            <span className="secondary-color card-title">{props.name}</span>
+            <a onClick={() => handleShow(props.id)} className="btn-floating halfway-fab green lighten-2 secondary-color"><i className="secondary-color lni lni-question-circle"></i></a>
           </div>
-          {/* <div class="card-content">
-
-          </div> */}
         </div>
       </div>
     </div>

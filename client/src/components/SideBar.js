@@ -3,6 +3,7 @@ import M from "materialize-css/dist/js/materialize.min.js";
 import { Link } from "react-router-dom";
 import "materialize-css/dist/css/materialize.min.css";
 import Button from './Button';
+import './SideBar.css';
 
 export default function Sidebar(props) {
 
@@ -14,25 +15,25 @@ export default function Sidebar(props) {
 
 
   return (
-    <div className="green lighten-2">
-      <center><h3><i className="green-text darken-4 lni-32 lni lni-sprout"></i>Green Thumb</h3></center>
+    <div className="green lighten-2 position">
+      <h2 class="secondary-color position"><i className="secondary-color lni-32 lni lni-sprout"></i>Green Thumb</h2>
 
-      <ul id="slide-out" className="sidenav">
+      <ul id="slide-out" className="sidenav green lighten-2">
         <li>
           <a href="/">
-            <i className="green-text darken-4 lni-32 lni lni-sprout"></i>Green Thumb
-                        </a>
+            <i className="secondary-color lni-32 lni lni-sprout"></i><h4 class="secondary-color">Green Thumb</h4>
+          </a>
         </li>
 
-        <li>
-          <a className="sidenav-close" href="/">Home</a>
-        </li>
+        <Link className="sidenav-close" to="/">
+          <Button className="sidenav-close transparent" name="Home" />
+        </Link>
 
         {!props.loggedInUser.logged_in &&
           <>
             <li>
               <Link className="sidenav-close" to="/register">
-                <Button className="sidenav-close" name="Register" />
+                <Button className="sidenav-close transparent" name="Register" />
               </Link>
             </li>
             <li>
@@ -57,8 +58,11 @@ export default function Sidebar(props) {
           </>
         }
       </ul>
+    </div>
+  );
+}
 
-      {/* <ul id="slide-out" classNameName="sidenav">
+{/* <ul id="slide-out" classNameName="sidenav">
         <li />
         <li>
           <a href="/">
@@ -80,12 +84,9 @@ export default function Sidebar(props) {
                         </a>
         </li>
       </ul> */}
-      <a href="#" data-target="slide-out" className="sidenav-trigger">
+{/* <a href="#" data-target="slide-out" className="sidenav-trigger">
         <i className="material-icons">menu</i>
-      </a>
-    </div>
-  );
-}
+      </a> */}
 
 
 

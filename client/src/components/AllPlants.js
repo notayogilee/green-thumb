@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PlantCard from './PlantCard';
 import SearchResults from './SearchResults';
+import './AllPlants.css';
 
 export default function AllPlants(props) {
 
@@ -26,19 +27,19 @@ export default function AllPlants(props) {
   return (
     <div>
 
-      <nav className="green lighten-2">
+      <nav className=" border secondary-color green lighten-2">
         <div className="nav-wrapper">
           <form>
             <div className="input-field">
               <input
-                className="center"
+                className="secondary-color"
                 id="search"
                 type="search"
                 value={searchPlant}
                 placeholder="Search for a plant"
                 onChange={handleChange}>
               </input>
-              <label className="center label-icon" htmlFor="search"><i className="material-icons">search</i></label>
+              <label className=" center label-icon" htmlFor="search"><i className="secondary-color material-icons">search</i></label>
             </div>
           </form>
         </div>

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import M from "materialize-css/dist/js/materialize.min.js";
 import './PlantListItem.css'
 
@@ -24,9 +25,11 @@ export default function PlantListItem(props) {
           <div class="card-image">
             <img class="responsive-img" alt="img" src={props.location.state.image_url} />
             <span class="card-title">{props.location.state.name}</span>
-            <a href="/" class="btn-floating btn-large halfway-fab waves-effect waves-light green lighten-2"><i class="lni lni-home"></i></a>
+            <Link to="/">
+              <a class="btn-floating btn-large halfway-fab waves-effect waves-light green lighten-2"><i class="lni lni-home"></i></a>
+            </Link>
           </div>
-          <ul class="collapsible">
+          <ul class=" no-marg collapsible">
             <li>
               <div class="collapsible-header green lighten-2"><i class="lni lni-question-circle"></i>Description</div>
               <div class="collapsible-body green lighten-3"><h5>{props.location.state.description}</h5></div>
