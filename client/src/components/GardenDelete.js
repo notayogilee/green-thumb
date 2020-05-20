@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
-import PlantCardList from './PlantCardList';
-import Button from './Button';
-import AllPlants from './AllPlants';
+
 
 export default function GardenDelete(props) {
 
@@ -12,7 +9,7 @@ export default function GardenDelete(props) {
   const removeGarden = function () {
     axios
       .delete(`http://localhost:3000//users/${props.loggedInUser.user.id}/gardens/${props.id}`)
-      .then( res => {
+      .then(res => {
         console.log("response from removeGarden", res.data)
         props.deleteGarden(props.id)
       })
@@ -23,14 +20,14 @@ export default function GardenDelete(props) {
 
   return (
     <div>
-    <button className="btn red" onClick={() => setToggle(!toggle)}><i class="material-icons">delete</i></button>
+      <button className="btn red" onClick={() => setToggle(!toggle)}><i class="material-icons">delete</i></button>
       {
         toggle &&
         <>
-        <h4>Are you sure?</h4>
-        <button onClick={removeGarden}>Yes, I'm sure.</button>
-        <button onClick={() => setToggle(!toggle)}>Cancel</button>
-        </>  
+          <h4>Are you sure?</h4>
+          <button onClick={removeGarden}>Yes, I'm sure.</button>
+          <button onClick={() => setToggle(!toggle)}>Cancel</button>
+        </>
       }
     </div>
   )

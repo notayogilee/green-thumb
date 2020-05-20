@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import Button from './Button';
 import axios from 'axios';
 import Timer from './Timer';
+import './PlantCardList.css';
 
 export default function PlantCardList(props) {
 
@@ -41,58 +42,20 @@ export default function PlantCardList(props) {
 
   return (
 
-
-
-    <form className="form"
-      onSubmit={event => {
-        event.preventDefault();
-
-      }
-      }>
-
-
-      <div class="col s12 m8 offset-m2 l6 offset-l3">
-        <div class="card-panel hoverable grey lighten-5 z-depth-1">
-          <div class="row valign-wrapper">
-            <div class="col s2">
-              <img src={props.img} alt="" class="circle responsive-img" />
-            </div>
-            <div class="col s10">
-              <h4>{props.name}</h4>
-              <span class="black-text">
-                {props.description}
-              </span>
-              <br />
-              <Button name="More Info" onclick={() => handleShow(props.id)}></Button>
-              {
-                props.loggedInUser && props.loggedInUser.logged_in && props.wateringTime === undefined && props.gardenId &&
-                <>
-                  <Button name="Add Plant" onclick={() => addPlant(props.gardenId, props.id)}></Button>
-
-                </>
-              }
-              {
-                props.wateringTime !== undefined &&
-
-                <>
-                  <Button name="Remove Plant" onclick={() => removePlant(props.gardenId, props.id)}></Button>
-                  <Timer
-                    wateringTime={props.wateringTime}
-                  />
-                </>
-              }
-            </div>
+    <div className="row">
+      <div className="col s12 m12">
+        <div className="card">
+          <div className="card-image image">
+            <img src={props.img} />
+            <span className="card-title">{props.name}</span>
+            <a onClick={() => handleShow(props.id)} className="btn-floating halfway-fab waves-effect waves-light green lighten-2"><i className="lni lni-question-circle"></i></a>
           </div>
+          {/* <div class="card-content">
+
+          </div> */}
         </div>
       </div>
-
-
-
-
-
-    </form>
-
+    </div>
 
   )
-
 }

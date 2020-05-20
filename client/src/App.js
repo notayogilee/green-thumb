@@ -90,7 +90,7 @@ function App() {
   return (
 
     <div>
-      <Navbar loggedInUser={state.user} handleLogoutClick={handleLogoutClick} />
+      <SideBar loggedInUser={state.user} handleLogoutClick={handleLogoutClick} />
       <Switch>
 
         <Route path='/login' render={(props) => <Login_NEW {...props} loggedInUser={state.user} handleSuccessfulAuth={handleSuccessfulAuth} />} />
