@@ -1,5 +1,6 @@
 .secondary-color {
   color: #004d40;
+  font-weight: 400;
 }
 
 .position {
@@ -9,4 +10,8 @@
   align-items: center;
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+i.fa-bars {
+  color: #004d40;
 }

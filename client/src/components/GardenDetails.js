@@ -5,7 +5,7 @@ import AllPlants from './AllPlants';
 import GardenUpdate from './GardenUpdate';
 import GardenDelete from './GardenDelete';
 
-import "./weather.css"
+import "./GardenDetails.css"
 
 import M from 'materialize-css'
 import 'materialize-css'
