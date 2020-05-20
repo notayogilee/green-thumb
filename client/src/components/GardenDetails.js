@@ -51,69 +51,41 @@ export default function GardenDetails(props) {
   );
 
   return (
-<<<<<<< HEAD
-
-    <div>
-      {/* <button onClick={() => addGarden()}>Add a New Garden [+]</button> */}
-      <button onClick={() => findGarden(props.id)}>{props.title}</button>
-      Location: {props.location}
-      <GardenUpdate
-        loggedInUser={props.loggedInUser}
-=======
     <div className="col s12 m3 l3">
       <div className="card medium">
-      <div className="row">
-      <div className="col s24">
-      <GardenUpdate 
-        loggedInUser={props.loggedInUser} 
->>>>>>> master
-        id={props.id}
-        title={props.title}
-        location={props.location}
-        updateGarden={props.updateGarden}
-        
-        />
-        </div>
-      <div className="col s24">
-      <GardenDelete
-        loggedInUser={props.loggedInUser} 
-        id={props.id}
-        deleteGarden={props.deleteGarden}
-        />
-        </div>
+        <div className="row">
+          <div className="col s24">
+            <GardenUpdate
+              loggedInUser={props.loggedInUser}
+              id={props.id}
+              title={props.title}
+              location={props.location}
+              updateGarden={props.updateGarden}
+
+            />
+          </div>
+          <div className="col s24">
+            <GardenDelete
+              loggedInUser={props.loggedInUser}
+              id={props.id}
+              deleteGarden={props.deleteGarden}
+            />
+          </div>
         </div>
         <h5>{props.title}</h5>
 
-<<<<<<< HEAD
-      />
-
-
-      <img src={weatherImg} />
-      <h6>{description}</h6>
-      <h4>Temperature {currentTemp}</h4>
-      <h6>Min {minTemp} Max {maxTemp}</h6>
-
-      <GardenDelete
-        loggedInUser={props.loggedInUser}
-        id={props.id}
-        deleteGarden={props.deleteGarden}
-      />
-      <br />
-
-=======
         <div className="container">
-       <h6> Location: </h6>
-       <h6>{props.location} </h6>
-      <img src={weatherImg} />
-      <h6>{description}</h6>
-      <h5>Temperature {currentTemp} °C</h5>
-      <h6>Min: {minTemp} Max: {maxTemp}</h6>
+          <h6> Location: </h6>
+          <h6>{props.location} </h6>
+          <img src={weatherImg} />
+          <h6>{description}</h6>
+          <h5>Temperature {currentTemp} °C</h5>
+          <h6>Min: {minTemp} Max: {maxTemp}</h6>
         </div>
       </div>
       <br />
       <button onClick={() => findGarden(props.id)}>Show {props.title} plants</button>
       <button onClick={() => setAddPlant(!addPlant)}>Add Plant</button>
->>>>>>> master
       {!addPlant &&
         <>
           <button onClick={() => setAddPlant(!addPlant)}>Add Plant</button>
@@ -123,18 +95,14 @@ export default function GardenDetails(props) {
       {addPlant &&
 
         <AllPlants
-        loggedInUser={props.loggedInUser}
-        plants={props.plants}
-        gardenId={props.id}
+          loggedInUser={props.loggedInUser}
+          plants={props.plants}
+          gardenId={props.id}
         />
 
       }
-<<<<<<< HEAD
-
-=======
-       <br />
-       <br />
->>>>>>> master
+      <br />
+      <br />
     </div>
   )
 }
