@@ -105,7 +105,7 @@ export default function GardenDetails(props) {
       />
       </div>
     </div>
-    <p><a href="#">This is a link</a></p>
+    <p><a href="#">{/* This is a link */}</a></p>
   </div>
   <div className="card-reveal">
     <span className="card-title grey-text text-darken-4"><i className="material-icons right">close</i>Card Title</span>
@@ -168,7 +168,7 @@ export default function GardenDetails(props) {
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
           </div>
         </div>
-    <button onClick={() => setAddPlant(!addPlant)}>Add Plant</button>
+    {/* <button onClick={() => setAddPlant(!addPlant)}>Add Plant</button> */}
     {/* {!addPlant && */}
       {/* <ul>{plantCard}</ul> */}
     {/* {addPlant && */}

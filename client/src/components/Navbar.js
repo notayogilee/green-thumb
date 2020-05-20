@@ -16,8 +16,9 @@ function Navbar(props) {
   return (
 
     <nav>
-      <div class="nav-wrapper">
-        <a href="/" class="brand-logo">Green Thumb - Grow It Yourself</a>
+      <div class="nav-wrapper teal darken-4">
+      <i class="green-text darken-4 lni-32 lni lni-sprout"></i>
+        <a href="/" class="brand-logo">  Green Thumb</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li>
             <Link to="/">
