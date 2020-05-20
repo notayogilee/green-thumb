@@ -23,7 +23,7 @@ export default function GardenDelete(props) {
 
   return (
     <div>
-    <button onClick={() => setToggle(!toggle)}>Delete this garden?</button>
+    <button className="btn red" onClick={() => setToggle(!toggle)}><i class="material-icons">delete</i></button>
       {
         toggle &&
         <>

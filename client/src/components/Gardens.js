@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import GardenDetails from './GardenDetails';
 import GardenAdd from './GardenAdd';
+import M from 'materialize-css'
+import 'materialize-css'
 
 
 export default function Garden(props) {
@@ -40,6 +42,7 @@ export default function Garden(props) {
 
   return (
     <>
+
     <GardenAdd 
       loggedInUser={props.loggedInUser} 
       addNewGarden={props.addNewGarden}

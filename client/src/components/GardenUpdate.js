@@ -45,7 +45,7 @@ export default function GardenUpdate(props) {
 //  onClick={() => setToggle(!toggle)}
   return (
     <div>
-    <button className="btn green" onClick={() => setToggle(!toggle)}>Update this Garden's info</button>
+    <button className="btn green" onClick={() => setToggle(!toggle)}><i class="material-icons">edit</i></button>
       {
         toggle &&
         <div>
