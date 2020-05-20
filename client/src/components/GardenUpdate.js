@@ -45,11 +45,13 @@ export default function GardenUpdate(props) {
 //  onClick={() => setToggle(!toggle)}
   return (
     <div>
-    <button onClick={() => setToggle(!toggle)}>Update this Garden's info</button>
+    <button className="btn green" onClick={() => setToggle(!toggle)}>Update this Garden's info</button>
       {
         toggle &&
+        <div>
+
       <form className="form" onSubmit={submitGarden}>
-        <div className="container login-form">
+        <div className="container">
 
           <input
             type="text"
@@ -69,10 +71,11 @@ export default function GardenUpdate(props) {
             required
             />
 
-          <button type="submit"> Update Garden! </button>
+          <button className="btn waves-effect waves-light" type="submit"> Update Garden! </button>
 
         </div>
       </form>
+    </div>
     }
       </div>
   )
