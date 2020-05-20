@@ -20,7 +20,7 @@ export default function PlantListItem(props) {
           <div class="card-image">
             <img class="responsive-img" src={props.location.state.image_url} />
             <h1 class="card-title ">{props.location.state.name}</h1>
-            <a href="/" class="btn-floating lg halfway-fab waves-effect waves-light red"><i class="lni lni-home"></i></a>
+            <a href="/" class="btn-floating btn-large halfway-fab waves-effect waves-light red"><i class="lni lni-home"></i></a>
           </div>
           <ul class="collapsible">
             <li>
