@@ -7,6 +7,11 @@ import AllPlants from './AllPlants';
 import GardenUpdate from './GardenUpdate';
 import GardenDelete from './GardenDelete';
 
+import "./weather.css"
+
+import M from 'materialize-css'
+import 'materialize-css'
+
 export default function GardenDetails(props) {
 
   const [plants, setPlants] = useState([])
@@ -22,6 +27,21 @@ export default function GardenDetails(props) {
         setWeatherDetails(res.data.weather[0]);
       })
       .catch((err) => console.log(err))
+
+      // var elems = document.querySelectorAll('.dropdown-trigger');
+      // M.Dropdown.init(elems, {
+      //   hover: true
+      // });
+      M.AutoInit();
+      var elems = document.querySelectorAll('.modal');
+      var instances = M.Modal.init(elems, {
+        // onOpenEnd: () => props.handleSuccessfulAuth(props.loggedInUser)
+      });
+      // M.Modal.getInstance(document.querySelectorAll('modal2'));
+      // M.Modal.getInstance(document.querySelectorAll('modal3'));
+      // return () => props.handleSuccessfulAuth()
+      
+
   }, [])
 
   const minTemp = parseInt(weather.temp_min);
@@ -56,14 +76,16 @@ export default function GardenDetails(props) {
     <div className="card medium">
 
       {/* <div className="container"> */}
-        <h6> Location: {props.location} </h6>
-        <img src={weatherImg} width="100" height="100"/>
-        <h6>{description}</h6>
-        <h6>Temperature {currentTemp} °C</h6>
-        Min: {minTemp} Max: {maxTemp}
+        <div id="weather">
+          <img src={weatherImg} width="100" height="100"/>
+          <h6>{description}</h6>
+          <h6>Temperature {currentTemp} °C</h6>
+          Min: {minTemp} Max: {maxTemp}
+        </div>
       {/* </div> */}
   <div className="card-content">
     <span className="card-title activator grey-text text-darken-4">{props.title}<i className="material-icons right">more_vert</i></span>
+        <h6> Location: {props.location} </h6>
     <div className="row">
     <div className="col s24">
     <GardenUpdate 
@@ -101,18 +123,60 @@ export default function GardenDetails(props) {
       </div> */}
     </div>
     <br />
-    <button onClick={() => findGarden(props.id)}>Show {props.title} plants</button>
+
+        {/* <!-- Modal Trigger --> */}
+            <button 
+              class="waves-effect waves-light btn modal-trigger" 
+              href={`#show${props.id}`} 
+              onClick={() => findGarden(props.id)}
+            >Show {props.title} plants</button>
+        {/* <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Modal</a> */}
+
+        {/* <!-- Modal Structure --> */}
+        <div id={`show${props.id}`} class="modal">
+          <div class="modal-content">
+            <h4>Plant in {props.title}</h4>
+            <AllPlants
+              loggedInUser={props.loggedInUser}
+              plants={props.plants}
+              gardenId={props.id}
+              />
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+          </div>
+        </div>
+
+        {/* <!-- Modal Trigger --> */}
+        <button 
+          class="waves-effect waves-light btn modal-trigger" 
+          // href="#modal3"
+          href={`#planted${props.id}`}
+          onClick={() => findGarden(props.id)}
+        >Plant list</button>
+        {/* <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Modal</a> */}
+
+        {/* <!-- Modal Structure --> */}
+        <div ref={M} id={`planted${props.id}`} class="modal">
+        {/* <div ref={M} id="modal3" class="modal"> */}
+          <div class="modal-content">
+          <h4>Planted in {props.title}</h4>
+
+            <ul>{plantCard}</ul>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+          </div>
+        </div>
     <button onClick={() => setAddPlant(!addPlant)}>Add Plant</button>
-    {!addPlant &&
-      <ul>{plantCard}</ul>
-    }
-    {addPlant &&
-      <AllPlants
+    {/* {!addPlant && */}
+      {/* <ul>{plantCard}</ul> */}
+    {/* {addPlant && */}
+      {/* <AllPlants
       loggedInUser={props.loggedInUser}
       plants={props.plants}
       gardenId={props.id}
-      />
-    }
+      /> */}
      <br />
      <br />
   </div>
