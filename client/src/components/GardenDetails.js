@@ -51,6 +51,7 @@ export default function GardenDetails(props) {
   );
 
   return (
+
     <div>
       {/* <button onClick={() => addGarden()}>Add a New Garden [+]</button> */}
       <button onClick={() => findGarden(props.id)}>{props.title}</button>
@@ -63,30 +64,36 @@ export default function GardenDetails(props) {
         updateGarden={props.updateGarden}
 
       />
-      <button onClick={() => setAddPlant(!addPlant)}>Add Plant</button>
+
 
       <img src={weatherImg} />
       <h6>{description}</h6>
       <h4>Temperature {currentTemp}</h4>
       <h6>Min {minTemp} Max {maxTemp}</h6>
-      {!addPlant &&
-        <ul>{plantCard}</ul>
-      }
-      {addPlant &&
-        <AllPlants
-          loggedInUser={props.loggedInUser}
-          plants={props.plants}
-          gardenId={props.id}
-        />
-      }
+
       <GardenDelete
         loggedInUser={props.loggedInUser}
         id={props.id}
         deleteGarden={props.deleteGarden}
       />
       <br />
-      <br />
-      <br />
+
+      {!addPlant &&
+        <>
+          <button onClick={() => setAddPlant(!addPlant)}>Add Plant</button>
+          <ul>{plantCard}</ul>
+        </>
+      }
+      {addPlant &&
+
+        <AllPlants
+          loggedInUser={props.loggedInUser}
+          plants={props.plants}
+          gardenId={props.id}
+        />
+
+      }
+
     </div>
   )
 }

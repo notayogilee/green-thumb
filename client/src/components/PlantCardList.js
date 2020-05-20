@@ -22,7 +22,7 @@ export default function PlantCardList(props) {
 
   function addPlant(targetGardenId, targetPlantId) {
 
-    axios.post(`/gardens/${targetGardenId}/plants/${targetPlantId}`, { watering_time: null })
+    axios.post(`/gardens/${targetGardenId}/plants/${targetPlantId}`, { watering_time: 1 })
       .then(res => console.log('addPlant', res))
       .catch(err => console.log(err))
   }
@@ -65,7 +65,7 @@ export default function PlantCardList(props) {
               <br />
               <Button name="More Info" onclick={() => handleShow(props.id)}></Button>
               {
-                props.loggedInUser && props.loggedInUser.logged_in && props.wateringTime === undefined &&
+                props.loggedInUser && props.loggedInUser.logged_in && props.wateringTime === undefined && props.gardenId &&
                 <>
                   <Button name="Add Plant" onclick={() => addPlant(props.gardenId, props.id)}></Button>
 
