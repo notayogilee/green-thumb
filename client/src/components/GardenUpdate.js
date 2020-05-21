@@ -56,7 +56,7 @@ useEffect( () => {
 
       <button 
         className="btn green modal-trigger"
-        href={`#garden-add${props.id}`}
+        href={`#garden-edit${props.id}`}
         onClick={() => setToggle(!toggle)}
       >
         <i class="material-icons">edit</i>
@@ -64,7 +64,7 @@ useEffect( () => {
 
       {
         // toggle &&
-        <div id={`garden-add${props.id}`} class="modal col s12 m6 l3 green accent-1">
+        <div id={`garden-edit${props.id}`} class="modal col s12 m6 l3 green accent-1">
 
           <form className="modal-content"
             className="form" 
