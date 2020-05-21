@@ -1,27 +1,32 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Button from './Button';
+import React, { useState, useEffect } from 'react';
+import M from "materialize-css/dist/js/materialize.min.js";
+import './PlantListItem.css'
 
 export default function SearchResults(props) {
 
   const [show, setShow] = useState(false);
 
+  useEffect(() => {
+
+    var elems = document.querySelectorAll('.collapsible');
+    var instances = M.Collapsible.init(elems, {
+      onOpenStart: true,
+      inDuration: 250
+    });
+
+  }, [show])
+
+
   return (
     <>
       {!show &&
-        <div class="col s12 m8 offset-m2 l6 offset-l3" >
-          <div class="card-panel hoverable grey lighten-5 z-depth-1">
-            <div class="row valign-wrapper">
-              <div class="col s2">
-                <img src={props.img} alt="" class="circle responsive-img" />
-              </div>
-              <div class="col s10">
-                <h4>{props.name}</h4>
-                <span class="black-text">
-                  {props.description}
-                </span>
-                <br />
-                <Button name="More Info" onclick={(() => { setShow(!show) })}></Button>
+        <div class="row">
+          <div class="col s12 m12">
+            <div class="card">
+              <div class="card-image image">
+                <img src={props.img} alt="img" />
+                <span class="card-title">{props.name}</span>
+                <a onClick={(() => { setShow(!show) })} class="btn-floating halfway-fab waves-effect waves-light green lighten-2"><i class="lni lni-question-circle"></i></a>
               </div>
             </div>
           </div>
@@ -30,56 +35,66 @@ export default function SearchResults(props) {
 
       {
         show &&
-        <div class="col s12 m8 offset-m2 l6 offset-l3">
-          <Button name="Back" onclick={(() => {
-            setShow(!show);
-            props.clearSearch()
-          })}></Button>
-          <div class="card-panel grey lighten-5 z-depth-1">
-            <h2 class="center">{props.name}</h2>
-            <div class="row valign-wrapper">
-              <div class="col s8">
-                <img src={props.img} class="circle center" alt={props.name}></img>
-              </div>
-              <div class="row s10">
-                <div class="black-text">
-                </div>
-              </div>
-            </div>
-            <p>{props.description}</p>
-            <h5>Suggested watering</h5>
-            <p>{props.watering}</p>
-            <h5>Feeding</h5>
-            <p>{props.feeding}</p>
-            <h5>Known diseases</h5>
-            <p>{props.diseases}</p>
-            <h5>How to grow from seed</h5>
-            <p>{props.growing_from_seed}</p>
-            <h5>Harvesting</h5>
-            <p>{props.harvesting}</p>
-            <h5>Optimal soil conditions</h5>
-            <p>{props.optimal_soil}</p>
-            <h5>Other care tips</h5>
-            <p>{props.other_care}</p>
-            <h5>Known pests</h5>
-            <p>{props.pests}</p>
-            <h5>Special planting considerations</h5>
-            <p>{props.planting_considerations}</p>
-            <h5>Plant spacing</h5>
-            <p>{props.spacing}</p>
 
-            <p>{props.storage}</p>
-            <h5>Transplanting</h5>
-            <p>{props.transplanting}</p>
-            <h5>When to plant</h5>
-            <p>{props.when_to_plant}</p>
-            <p>{props.watering_time}</p>
-            {/* <p><a class="center" href="/">Home</a></p> */}
-            <Link to="/gardens">
-              <Button name="gardens" />
-            </Link>
+        <div class="row center">
+          <div class="col s12 m12 ">
+            <div class="card">
+              <div class="card-image green lighten-2">
+                <img class="responsive-img" src={props.img} alt="img" />
+                <span class="card-title">{props.name}</span>
+                <a href="/" class="btn-floating btn-large halfway-fab waves-effect waves-light green lighten-2"><i class="lni lni-home"></i></a>
+              </div>
+              <ul class="collapsible">
+                <li>
+                  <div class="collapsible-header green lighten-2"><i class="lni lni-question-circle"></i>Description</div>
+                  <div class="collapsible-body green lighten-3"><h5>{props.description}</h5></div>
+                </li>
+                <li>
+                  <div class="collapsible-header green lighten-2"><i class="fas fa-faucet"></i>Watering</div>
+                  <div class="collapsible-body green lighten-3"><h5>{props.watering}</h5></div>
+                </li>
+                <li>
+                  <div class="collapsible-header green lighten-2"><i class="lni lni-angle-double-right"></i>Feeding</div>
+                  <div class="collapsible-body green lighten-3"><h5>{props.feeding}</h5></div>
+                </li>
+                <li>
+                  <div class="collapsible-header green lighten-2"><i class="fas fa-disease"></i>Diseases</div>
+                  <div class="collapsible-body green lighten-3"><h5>{props.diseases}</h5></div>
+                </li>
+                <li>
+                  <div class="collapsible-header green lighten-2"><i class="fas fa-seedling"></i>Grow from seed</div>
+                  <div class="collapsible-body green lighten-3"><h5>{props.growing_from_seed}</h5></div>
+                </li>
+                <li>
+                  <div class="collapsible-header green lighten-2"><i class="lni lni-angle-double-right"></i>Harvesting</div>
+                  <div class="collapsible-body green lighten-3"><h5>{props.harvesting}</h5></div>
+                </li>
+
+                <li>
+                  <div class="collapsible-header green lighten-2"><i class="fas fa-vial"></i>Soil conditions</div>
+                  <div class="collapsible-body green lighten-3"><h5>{props.optimal_soil}</h5></div>
+                </li>
+                <li>
+                  <div class="collapsible-header green lighten-2"><i class="fas fa-star-of-life"></i>Care tips</div>
+                  <div class="collapsible-body green lighten-3"><h5>{props.other_care}</h5></div>
+                </li>
+                <li>
+                  <div class="collapsible-header green lighten-2"><i class="fas fa-bug"></i>Known pests</div>
+                  <div class="collapsible-body green lighten-3"><h5>{props.pests}</h5></div>
+                </li>
+                <li>
+                  <div class="collapsible-header green lighten-2"><i class="far fa-clipboard"></i>Special planting considerations</div>
+                  <div class="collapsible-body green lighten-3"><h5>{props.planting_considerations}</h5></div>
+                </li>
+                <li>
+                  <div class="collapsible-header green lighten-2"><i class="lni lni-line-spacing"></i>Plant spacing</div>
+                  <div class="collapsible-body green lighten-3"><h5>{props.spacing}</h5></div>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
+
       }
     </>
   )

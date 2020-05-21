@@ -1,0 +1,14 @@
+.search-bar {
+  background-color: green;
+}
+
+.secondary-color {
+  color: #004d40;
+}
+
+.border {
+  color: #004d40;
+  border-radius: 50px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}

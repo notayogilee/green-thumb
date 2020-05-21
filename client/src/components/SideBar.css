@@ -1,0 +1,12 @@
+.secondary-color {
+  color: #004d40;
+}
+
+.position {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

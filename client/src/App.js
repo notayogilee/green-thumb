@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import SideBar from './components/SideBar';
 import AllPlants from './components/AllPlants';
 import axios from 'axios';
 import Register_NEW from './components/Auth/Register_NEW';
@@ -89,7 +90,7 @@ function App() {
   return (
 
     <div>
-      <Navbar loggedInUser={state.user} handleLogoutClick={handleLogoutClick} />
+      <SideBar loggedInUser={state.user} handleLogoutClick={handleLogoutClick} />
       <Switch>
 
         <Route path='/login' render={(props) => <Login_NEW {...props} loggedInUser={state.user} handleSuccessfulAuth={handleSuccessfulAuth} />} />
@@ -105,17 +106,10 @@ function App() {
             updateGarden={updateGarden}
             deleteGarden={deleteGarden} />}
         />
-        {/* <Route path='/plant' component={PlantListItem} /> */}
 
         <Route path='/plant' render={(props) => <PlantListItem {...props} plants={state.plants} loggedInUser={state.user} />} />
 
         <Route path='/' render={(props) => <AllPlants {...props} plants={state.plants} loggedInUser={state.user} />} />
-
-        {/* <Route path='/login' component={Login} /> */}
-        {/* <Route path='/register' component={Register} /> */}
-        {/* <Route path='/gardens' component={Gardens} /> */}
-        {/* <Route path='/gardens/:gardenId' component={GardenDetails} /> */}
-        {/* <Route path='/' component={Home} /> */}
 
       </Switch>
 

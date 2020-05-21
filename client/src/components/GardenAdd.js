@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
-import PlantCardList from './PlantCardList';
-import Button from './Button';
-import AllPlants from './AllPlants';
-import materialize from "materialize-css";
+
 /* 
   Props needed : 
     loggedInUser
@@ -29,11 +25,11 @@ export default function GardenAdd(props) {
     event.preventDefault();
 
     axios
-      .post(`http://localhost:3000/users/${props.loggedInUser.user.id}/gardens`, 
-      {
-        title: garden.title,
-        location: garden.location
-      })
+      .post(`http://localhost:3000/users/${props.loggedInUser.user.id}/gardens`,
+        {
+          title: garden.title,
+          location: garden.location
+        })
       .then((res => {
         console.log("response from AddGarden", res)
         setToggle(!toggle)
@@ -43,54 +39,54 @@ export default function GardenAdd(props) {
         console.log("AddGarden Error", err)
       })
   };
-//  onClick={() => setToggle(!toggle)}
+  //  onClick={() => setToggle(!toggle)}
   return (
     <div className="row col s12">
-    <button className="waves-light btn col" onClick={() => setToggle(!toggle)}>Add a New Garden [+]</button>
+      <button className="waves-light btn col" onClick={() => setToggle(!toggle)}>Add a New Garden [+]</button>
       {
         toggle &&
         <>
-        
-        <form onSubmit={submitGarden}>
-        <div className="col s1"></div>
-        <div className="row">
+
+          <form onSubmit={submitGarden}>
+            <div className="col s1"></div>
+            <div className="row">
 
 
-        <div className="input-field col s3">
+              <div className="input-field col s3">
 
-          <input
-            type="text"
-            name="title"
-            value={garden.title}
-            // placeholder="Enter your new garden's title"
-            onChange={handleChange}
-            required
-            />
-          <label for="title">title</label>
+                <input
+                  type="text"
+                  name="title"
+                  value={garden.title}
+                  // placeholder="Enter your new garden's title"
+                  onChange={handleChange}
+                  required
+                />
+                <label for="title">title</label>
 
-          </div>
-          <div className="col s1"></div>
-        <div className="input-field col s2">
-          <input
-            type="text"
-            name="location"
-            value={garden.location}
-            // placeholder="location"
-            onChange={handleChange}
-            required
-            />
-            <label for="location">location (city) </label>
+              </div>
+              <div className="col s1"></div>
+              <div className="input-field col s2">
+                <input
+                  type="text"
+                  name="location"
+                  value={garden.location}
+                  // placeholder="location"
+                  onChange={handleChange}
+                  required
+                />
+                <label for="location">location (city) </label>
+
+              </div>
+              <div className="col s1"></div>
+              <div className="col s1">
+                <button className="waves-effect waves-light btn" type="submit"> Add Garden! </button>
+              </div>
 
             </div>
-          <div className="col s1"></div>
-          <div className="col s1">
-          <button className="waves-effect waves-light btn" type="submit"> Add Garden! </button>
-            </div>
-
-        </div>
-      </form>
-      </>
-    }
-      </div>
+          </form>
+        </>
+      }
+    </div>
   )
 }
