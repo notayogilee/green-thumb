@@ -18,16 +18,16 @@ export default function Sidebar(props) {
     <div className="green lighten-2 position">
       <h2 class="secondary-color position"><i className="secondary-color lni-32 lni lni-sprout"></i>Green Thumb</h2>
 
-      <ul id="slide-out" className="sidenav green lighten-2">
-        <li>
-          <a href="/">
-            <i className="secondary-color lni-32 lni lni-sprout"></i><h4 class="secondary-color">Green Thumb</h4>
-          </a>
-        </li>
+      <a href="#" data-target="slide-out" class="sidenav-trigger"><i class=" fas fa-bars fa-2x"></i></a>
 
-        <Link className="sidenav-close" to="/">
-          <Button className="sidenav-close transparent" name="Home" />
-        </Link>
+      <ul id="slide-out" className="sidenav green lighten-2">
+        <h5 class="position secondary-color"><i className="secondary-color lni-flip-32 lni lni-sprout"></i>Green Thumb</h5>
+
+        <li>
+          <Link className="sidenav-close" to="/">
+            <Button className="secondary-color sidenav-close transparent" name="Home" />
+          </Link>
+        </li>
 
         {!props.loggedInUser.logged_in &&
           <>
@@ -62,31 +62,6 @@ export default function Sidebar(props) {
   );
 }
 
-{/* <ul id="slide-out" classNameName="sidenav">
-        <li />
-        <li>
-          <a href="/">
-            <i class="green-text darken-4 lni-32 lni lni-sprout"></i>Green Thumb
-                        </a>
-        </li>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/register">Register</a>
-        </li>
-        <li>
-        </li>
-
-        <li>
-          <a className="waves-effect" href="/login">
-            Login
-                        </a>
-        </li>
-      </ul> */}
-{/* <a href="#" data-target="slide-out" className="sidenav-trigger">
-        <i className="material-icons">menu</i>
-      </a> */}
 
 
 

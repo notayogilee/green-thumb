@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import M from 'materialize-css'
 import 'materialize-css'
-import "./weather.css"
+import "./GardenDetails.css"
 
 
 import PlantCardList from './PlantCardList';

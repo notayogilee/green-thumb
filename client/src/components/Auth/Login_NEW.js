@@ -71,7 +71,7 @@ export default function Login(props) {
 
         <Redirect to='/' />
       }
-      <h1 class="center"> Login </h1>
+      <h1 class="primary-color center"> Login </h1>
       <form className="form" onSubmit={handleSubmit}>
         <div className="container login-form">
 
