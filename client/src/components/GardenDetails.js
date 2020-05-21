@@ -102,7 +102,7 @@ export default function GardenDetails(props) {
               />
             </div>
           </div>
-          <p><a href="#">This is a link</a></p>
+          {/* <p><a href="#">This is a link</a></p> */}
         </div>
         <div className="card-reveal">
           <span className="card-title grey-text text-darken-4"><i className="material-icons right">close</i>Card Title</span>
@@ -126,7 +126,7 @@ export default function GardenDetails(props) {
         class="waves-effect waves-light btn modal-trigger"
         href={`#show${props.id}`}
         onClick={() => findGarden(props.id)}
-      >Show {props.title} plants</button>
+      >Add plants</button>
       {/* <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Modal</a> */}
 
       {/* <!-- Modal Structure --> */}
@@ -140,7 +140,7 @@ export default function GardenDetails(props) {
           />
         </div>
         <div class="modal-footer">
-          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Garden</a>
         </div>
       </div>
 
@@ -150,30 +150,22 @@ export default function GardenDetails(props) {
         // href="#modal3"
         href={`#planted${props.id}`}
         onClick={() => findGarden(props.id)}
-      >Plant list</button>
+      >Planted in {props.title}</button>
       {/* <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Modal</a> */}
 
       {/* <!-- Modal Structure --> */}
       <div ref={M} id={`planted${props.id}`} class="modal">
         {/* <div ref={M} id="modal3" class="modal"> */}
         <div class="modal-content">
-          <h4>Planted in {props.title}</h4>
+          <h4>Plant List</h4>
 
           <ul>{plantCard}</ul>
         </div>
         <div class="modal-footer">
-          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+          <a href="/garden" class="modal-close waves-effect waves-green btn-flat">Garden</a>
         </div>
       </div>
-      <button onClick={() => setAddPlant(!addPlant)}>Add Plant</button>
-      {/* {!addPlant && */}
-      {/* <ul>{plantCard}</ul> */}
-      {/* {addPlant && */}
-      {/* <AllPlants
-      loggedInUser={props.loggedInUser}
-      plants={props.plants}
-      gardenId={props.id}
-      /> */}
+
       <br />
       <br />
     </div>

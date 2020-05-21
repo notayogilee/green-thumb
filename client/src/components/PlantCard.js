@@ -22,7 +22,14 @@ export default function PlantCard(props) {
 
   return (
 
-    plantCard
+    <div className="row" >
+
+      <div>
+        <ul>
+          {plantCard}
+        </ul>
+      </div>
+    </div>
 
   )
 }

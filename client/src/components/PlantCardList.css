@@ -7,3 +7,8 @@
 .secondary-color {
   color: #004d40;
 }
+
+.showcase {
+  display: flex;
+  flex-wrap: wrap;
+}
