@@ -68,7 +68,7 @@ export default function PlantCardList(props) {
               props.wateringTime !== undefined &&
               <>
                 <a onClick={() => handleShow(props.id)} className="btn-floating halfway-fab btn-large green lighten-2 secondary-color"><i className="secondary-color lni-32 lni lni-question-circle"></i></a>
-                <a onClick={() => removePlant(props.gardenId, props.id)} className="left btn-floating btn-large halfway-fab red "><i class="large material-icons">clear</i></a>
+                <a onClick={() => removePlant(props.gardenId, props.id)} className="left btn-floating btn-large waves-effect halfway-fab red "><i class="large material-icons">clear</i></a>
               </>
             }
 
