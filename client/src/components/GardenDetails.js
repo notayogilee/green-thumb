@@ -70,7 +70,7 @@ export default function GardenDetails(props) {
 
   return (
     <div className="col s12 m3 l3">
-      <div className="card medium">
+      <div className="card medium weather-card">
 
         {/* <div className="container"> */}
         <div id="weather">
@@ -81,10 +81,10 @@ export default function GardenDetails(props) {
         </div>
         {/* </div> */}
         <div className="weather card-content">
-          <span className="card-title activator grey-text text-darken-4">{props.title}<i className="material-icons right">more_vert</i></span>
+          <span className="card-title activator grey-text text-darken-4">{props.title}</span>
           <h6> Location: {props.location} </h6>
-          <div className="row">
-            <div className="col s24">
+          <div className="row weather">
+            <div className="col s6 weather">
               <GardenUpdate
                 loggedInUser={props.loggedInUser}
                 id={props.id}
@@ -94,7 +94,7 @@ export default function GardenDetails(props) {
 
               />
             </div>
-            <div className="col s24">
+            <div className="col s6 weather">
               <GardenDelete
                 loggedInUser={props.loggedInUser}
                 id={props.id}
@@ -162,7 +162,7 @@ export default function GardenDetails(props) {
           <ul>{plantCard}</ul>
         </div>
         <div class="modal-footer">
-          <a href="/garden" class="modal-close waves-effect waves-green btn-flat">Garden</a>
+          {/* <a href="/garden" class="modal-close waves-effect waves-green btn-flat">Garden</a> */}
         </div>
       </div>
 

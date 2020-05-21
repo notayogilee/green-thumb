@@ -6,6 +6,7 @@
   text-align: center;
   justify-content: center;
   align-content: center;
+  padding-bottom: 0;
 }
 
 .weather {
@@ -16,8 +17,13 @@
   text-align: center;
   justify-content: center;
   align-content: center;
+  padding-bottom: 0;
 }
 
 .secondary-color {
   color: #004d40;
+}
+
+.weather-card {
+  background-color: #81c784;
 }
