@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import PlantCardList from './PlantCardList';
 import AllPlants from './AllPlants';
@@ -128,7 +129,6 @@ export default function GardenDetails(props) {
         onClick={() => findGarden(props.id)}
       >Show {props.title} plants</button>
       {/* <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Modal</a> */}
-
       {/* <!-- Modal Structure --> */}
       <div id={`show${props.id}`} class="modal">
         <div class="modal-content">
@@ -162,18 +162,23 @@ export default function GardenDetails(props) {
           <ul>{plantCard}</ul>
         </div>
         <div class="modal-footer">
-          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+          <Link to='/'>
+            <a class="modal-close waves-effect waves-green btn-flat">Garden</a>
+          </Link>
         </div>
       </div>
-      <button onClick={() => setAddPlant(!addPlant)}>Add Plant</button>
+      {/* <button onClick={() => setAddPlant(!addPlant)}>Add Plant</button> */}
+
       {/* {!addPlant && */}
       {/* <ul>{plantCard}</ul> */}
-      {/* {addPlant && */}
-      {/* <AllPlants
-      loggedInUser={props.loggedInUser}
-      plants={props.plants}
-      gardenId={props.id}
-      /> */}
+      {/* }
+      {addPlant &&
+        <AllPlants
+          loggedInUser={props.loggedInUser}
+          plants={props.plants}
+          gardenId={props.id}
+        />
+      } */}
       <br />
       <br />
     </div>

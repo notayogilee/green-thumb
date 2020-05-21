@@ -16,12 +16,15 @@ export default function Sidebar(props) {
 
   return (
     <div className="green lighten-2 position">
-      <h2 class="secondary-color position"><i className="secondary-color lni-32 lni lni-sprout"></i>Green Thumb</h2>
+      <div className="menu">
+        <a href="#" data-target="slide-out" className="sidenav-trigger"><i class=" fas fa-bars fa-2x"></i></a>
+      </div>
 
-      <a href="#" data-target="slide-out" class="sidenav-trigger"><i class=" fas fa-bars fa-2x"></i></a>
+      <h2 className="secondary-color position"><i className="secondary-color lni-32 lni lni-sprout"></i>Green Thumb</h2>
+
 
       <ul id="slide-out" className="sidenav green lighten-2">
-        <h5 class="position secondary-color"><i className="secondary-color lni-flip-32 lni lni-sprout"></i>Green Thumb</h5>
+        <h5 className="position secondary-color"><i className="secondary-color lni-flip-32 lni lni-sprout"></i>Green Thumb</h5>
 
         <li>
           <Link className="sidenav-close" to="/">

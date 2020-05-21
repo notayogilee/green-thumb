@@ -62,7 +62,7 @@ export default function Register(props) {
 
   return (
     <div>
-      <center> <h1> Register </h1> </center>
+      <center> <h1 className="green-text lighten-2"> Register </h1> </center>
       <form className="form" onSubmit={handleSubmit}>
         <div className="container login-form">
 

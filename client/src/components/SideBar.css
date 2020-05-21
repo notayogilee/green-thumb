@@ -8,10 +8,17 @@
   justify-content: center;
   align-self: center;
   align-items: center;
-  padding-top: 10px;
   padding-bottom: 10px;
+  /* position: sticky;
+  top: 0; */
+  /* z-index: 5; */
 }
 
 i.fa-bars {
   color: #004d40;
+}
+
+.menu {
+  padding-top: 10px;
+  padding-right: 300px;
 }

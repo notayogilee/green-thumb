@@ -32,7 +32,7 @@ export default function AllPlants(props) {
           <form>
             <div className="input-field">
               <input
-                className="secondary-color"
+                className="green lighten-2 border"
                 id="search"
                 type="search"
                 value={searchPlant}

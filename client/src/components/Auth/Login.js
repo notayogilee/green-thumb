@@ -43,6 +43,7 @@ export default function Login(props) {
         <div className="container login-form">
           <label>Email : </label>
           <input
+            className="green lighten-2"
             type="text"
             value={email}
             placeholder="Enter Email"
