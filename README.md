@@ -13,10 +13,10 @@ This is a final project for Lighthouse Labs created by Lee Castelani & Ahmed (Ha
 2. Use either yarn start or npm start to run on server.  It will be running on localhost:3006.
 3. The app is meant to be displayed on primarily on mobile, so it looks better using dev tools tablet mode.
 4. You can create an account and play around or login with 
-    email: andy@labber.ca and password: labber 
-    email: ray@labber.ca and password: labber
-    email: sheldon@labber.ca and password: labber
-    email: felix@labber.ca and password: labber
+    * email: andy@labber.ca and password: labber 
+    * email: ray@labber.ca and password: labber
+    * email: sheldon@labber.ca and password: labber
+    * email: felix@labber.ca and password: labber
 5. Have fun!
 
 
