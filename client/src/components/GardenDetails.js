@@ -10,6 +10,9 @@ import "./GardenDetails.css"
 import M from 'materialize-css'
 import 'materialize-css'
 
+console.log(process.env.REACT_APP_WEATHER_API_KEY)
+
+
 export default function GardenDetails(props) {
 
   const [plants, setPlants] = useState([])
@@ -19,7 +22,7 @@ export default function GardenDetails(props) {
   const [weatherDetails, setWeatherDetails] = useState({});
 
   useEffect(() => {
-    axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${props.location}&units=metric&appid=a2662e448644542c9ee3b85b621ce010`)
+    axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${props.location}&units=metric&appid=${process.env.REACT_APP_WEATHER_API_KEY}`)
       .then(res => {
         setWeather(res.data.main);
         setWeatherDetails(res.data.weather[0]);
