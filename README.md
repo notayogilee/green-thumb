@@ -10,6 +10,8 @@ This is a final project for Lighthouse Labs created by Lee Castelani & Ahmed (Ha
 ## Setup frontend
 
 1. Cd into client file & npm install dependencies.
+2. Get api key from https://openweathermap.org 
+3. Make a .env file from the .env.example and insert your own key in appropriate place.
 2. Use either yarn start or npm start to run on server.  It will be running on localhost:3006.
 3. The app is meant to be displayed on primarily on mobile, so it looks better using dev tools tablet mode.
 4. You can create an account and play around or login with 
