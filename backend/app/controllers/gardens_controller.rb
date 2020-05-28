@@ -6,8 +6,6 @@ class GardensController < ApplicationController
 
   # GET /users/:user_id/gardens
   def index
-    # set_user
-    # set_user_garden
     json_response(@user.gardens)
   end
 
@@ -18,8 +16,6 @@ class GardensController < ApplicationController
 
   # GET /users/:user_id/gardens/:id
   def show
-    # set_user
-    # set_user_garden
     json_response(@garden)
   end
 
@@ -32,14 +28,12 @@ class GardensController < ApplicationController
   # PUT /users/:user_id/gardens/:id
   def update
     @garden.update(garden_params)
-    # head :no_content
     json_response(@garden, :created)
   end
 
   # DELETE /users/:user_id/gardens/:id
   def destroy
     @garden.destroy
-    # head :no_content
     json_response( { Garden: "Garden removed" } )
 
   end

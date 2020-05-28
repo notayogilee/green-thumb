@@ -5,17 +5,11 @@ class GardenPlantsController < ApplicationController
   
     # GET /users/:user_id/gardens
     def index
-      # set_user
-      # set_user_garden
-      # json_response(@garden.plants)
-      # json_response(@user.@garden.joins(:plants))
     end
   
     # GET /users/:user_id/gardens/:id
     def show
       raise 
-      # set_user
-      # set_user_garden
       json_response(@garden.plant)
     end
   

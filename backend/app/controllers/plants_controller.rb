@@ -7,17 +7,8 @@ class PlantsController < ApplicationController
     @plants = Plant.all
     json_response(@plants)
   end
-  
-  # def index
-  #   # user_id = params[:user_id]
-  #   garden_id = params[:garden_id]
-  #   garden = Garden.find(garden_id)
-  #   @plants = garden.plants
-  #   json_response(@plants)
-  # end
 
   def index
-    # user_id = params[:user_id]
     garden_id = params[:garden_id]
     garden = Garden.find(garden_id)
     
@@ -30,11 +21,10 @@ class PlantsController < ApplicationController
       @w_times_array.push(@w_times)
       
     end
-    # json_response(@plant)
+    
     json_response(@w_times_array)
-    # json_response(@plants)
+   
   end
-
   
   # POST /gardens/:garden_id/plants
   def create
@@ -74,9 +64,6 @@ class PlantsController < ApplicationController
     json_response(w_times)
   end
 
-  # STRETCH
-  # PUT /gardens/:garden_id/plants/:id
-
   def update
     garden_id = params[:garden_id]
     @garden = Garden.find(garden_id)
@@ -88,14 +75,10 @@ class PlantsController < ApplicationController
     target_plant.watering_time = watering_time
     target_plant.save!
 
-    # @plant.update(plant_params)
-    # @plant.update(plant_params)
-    # head :no_content
     json_response(target_plant)
 
   end
 
-  # STRETCH
   # DELETE /plants/:id
   def destroy
     garden_id = params[:garden_id]
@@ -105,7 +88,6 @@ class PlantsController < ApplicationController
       {garden_id: garden_id,
          plant_id: plant_id}).first
     target_plant.destroy!
-    # head :no_content
     json_response( { Plant: "plant removed" } )
   end
 

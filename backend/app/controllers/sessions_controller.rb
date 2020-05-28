@@ -18,7 +18,6 @@ class SessionsController < ApplicationController
   end
 
   def logged_in
-
     if @current_user
       render json: {
         logged_in: true,
@@ -29,20 +28,11 @@ class SessionsController < ApplicationController
         logged_in: false
       }
     end
-
   end
 
   def logout
     reset_session
     render json: { status: 200, logged_out: true }    
   end
-
+  
 end
-
-# The front end should send this 
-# {
-#   "user": {
-#     "email": "email@example.com",
-#     "password": "secret"
-#   }
-# }

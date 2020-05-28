@@ -16,43 +16,20 @@ Rails.application.routes.draw do
   get '/plants', to: 'plants#all_plants'
   get '/plants/:id', to: 'plants#show_original'
   post '/gardens/:garden_id/plants/:id', to:'plants#create'
-  # resources :gardens do
-  #   collection do
-  #     get :all_gardens
-  #   end
-  #   # resources :plants
-  # end
+ 
   resources :gardens do
     resources :plants
   end
+  
   resources :users, except: [:destroy] do
     resources :gardens
   end
-##
+
   concern :garden_plant_list do
     resources :garden_plants
   end
+
   resources :gardens, concerns: :garden_plant_list
   resources :plants, concerns: :garden_plant_list
-  
-  
-  # resources :plants, except: [:destroy]
-  # resources :gardens do
-  #   collection do
-  #     get :all_gardens
-  #   end
-  # end
-
-
-  # get '/hamada' => 'users#index'
-
-  ## These lines are from Jungle app as a reminder
-
-  # get '/login' => 'sessions#new'
-  # post '/login' => 'sessions#create'
-  # get '/logout' => 'sessions#destroy'
-
-  # get '/register' => 'users#new'
-  # post '/users' => 'users#create'
 
 end

@@ -20,31 +20,14 @@ class UsersController < ApplicationController
   
   # GET /users/:id
   def show
-    # @user = User.find(params[:id])
     set_user
     json_response(@user)
   end
 
-  # STRETCH
-  # PUT /users/:id
-  # def update
-  #   @user.update(user_params)
-  #   head :no_content
-  # end
-
-  # STRETCH
-  # DELETE /users/:id
-  # def destroy
-  #   @user.destroy
-  #   head :no_content
-  # end
-
   private
 
   def user_params
-    # whitelist params
     params.permit(:name, :email, :password, :password_confirmation)
-    # params.permit(:name, :email, :password)
   end
 
   def set_user
