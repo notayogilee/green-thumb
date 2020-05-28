@@ -24,7 +24,7 @@ export default function PlantListItem(props) {
             <img width="200px" height="400px" alt="img" src={props.location.state.image_url} />
             <span class="card-title">{props.location.state.name}</span>
             <Link to="/">
-              <a class="btn-floating btn-large halfway-fab waves-effect waves-light green lighten-2"><i class="lni lni-home"></i></a>
+              <a href="/" class="btn-floating btn-large halfway-fab waves-effect waves-light green lighten-2"><i class="lni lni-home"></i></a>
             </Link>
           </div>
           <ul class=" no-marg collapsible">

@@ -65,8 +65,8 @@ export default function GardenUpdate(props) {
 
         <div id={`garden-edit${props.id}`} class="modal col s12 m6 l3 green accent-1">
 
-          <form className="modal-content"
-            className="form"
+          <form
+            className="modal-content form"
             onSubmit={submitGarden}
           >
             <div className="container">

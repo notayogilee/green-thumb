@@ -16,7 +16,7 @@ export default function Sidebar(props) {
   return (
     <div className="green lighten-2 position">
       <div className="menu">
-        <a href="#" data-target="slide-out" className="sidenav-trigger"><i class=" fas fa-bars fa-2x"></i></a>
+        <a href="#*" data-target="slide-out" className="sidenav-trigger"><i class=" fas fa-bars fa-2x"></i></a>
       </div>
 
       <h2 className="secondary-color position"><i className="secondary-color lni-32 lni lni-sprout"></i>Green Thumb</h2>

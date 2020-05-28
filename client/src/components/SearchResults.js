@@ -25,7 +25,7 @@ export default function SearchResults(props) {
               <div class="card-image image">
                 <img src={props.img} alt="img" />
                 <span class="card-title">{props.name}</span>
-                <a onClick={(() => { setShow(!show) })} class="btn-floating halfway-fab waves-effect waves-light green lighten-2"><i class="lni lni-question-circle"></i></a>
+                <a href="#*" onClick={(() => { setShow(!show) })} class="btn-floating halfway-fab waves-effect waves-light green lighten-2"><i class="lni lni-question-circle"></i></a>
               </div>
             </div>
           </div>

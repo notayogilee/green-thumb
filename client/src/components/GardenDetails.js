@@ -11,8 +11,6 @@ import 'materialize-css'
 export default function GardenDetails(props) {
 
   const [plants, setPlants] = useState([])
-  const [addPlant, setAddPlant] = useState(false)
-
   const [weather, setWeather] = useState({});
   const [weatherDetails, setWeatherDetails] = useState({});
 
@@ -24,10 +22,6 @@ export default function GardenDetails(props) {
       })
       .catch((err) => console.log(err))
 
-    // var elems = document.querySelectorAll('.dropdown-trigger');
-    // M.Dropdown.init(elems, {
-    //   hover: true
-    // });
     M.AutoInit();
     var elems = document.querySelectorAll('.modal');
     var instances = M.Modal.init(elems, {

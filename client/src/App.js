@@ -4,8 +4,8 @@ import Navbar from './components/Navbar';
 import SideBar from './components/SideBar';
 import AllPlants from './components/AllPlants';
 import axios from 'axios';
-import Register_NEW from './components/Auth/Register_NEW';
-import Login_NEW from './components/Auth/Login_NEW';
+import Register from './components/Auth/Register';
+import Login from './components/Auth/Login';
 import Gardens from './components/Gardens';
 import PlantListItem from './components/PlantListItem';
 import useGardenData from './hooks/useGardenData';
@@ -80,8 +80,8 @@ function App() {
     <div>
       <SideBar loggedInUser={state.user} handleLogoutClick={handleLogoutClick} />
       <Switch>
-        <Route path='/login' render={(props) => <Login_NEW {...props} loggedInUser={state.user} handleSuccessfulAuth={handleSuccessfulAuth} />} />
-        <Route path='/register' render={(props) => <Register_NEW {...props} handleSuccessfulAuth={handleSuccessfulAuth} />} />
+        <Route path='/login' render={(props) => <Login {...props} loggedInUser={state.user} handleSuccessfulAuth={handleSuccessfulAuth} />} />
+        <Route path='/register' render={(props) => <Register {...props} handleSuccessfulAuth={handleSuccessfulAuth} />} />
         <Route
           path='/gardens'
           render={(props) => <Gardens
