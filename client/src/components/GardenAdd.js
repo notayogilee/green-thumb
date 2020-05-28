@@ -26,7 +26,6 @@ export default function GardenAdd(props) {
           location: garden.location
         })
       .then((res => {
-        console.log("response from AddGarden", res)
         setToggle(!toggle)
         props.addNewGarden(res.data)
       }))

@@ -17,7 +17,6 @@ export default function useLoggedInState(initial) {
       loggedInStatus: "LOGGED_IN",
       user: data.user
     });
-    console.log("handleLoginState (HOOK)", loggedInState)
   };
 
   // Helper Function // setState : Logout
@@ -64,7 +63,6 @@ export default function useLoggedInState(initial) {
     axios
       .delete(`http://localhost:3000/logout`, { withCredentials: true })
       .then(response => {
-        console.log("Logout response : ", response)
         handleLogoutState();
       })
       .catch(error => {

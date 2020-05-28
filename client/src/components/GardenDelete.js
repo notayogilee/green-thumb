@@ -10,7 +10,6 @@ export default function GardenDelete(props) {
     axios
       .delete(`http://localhost:3000//users/${props.loggedInUser.user.id}/gardens/${props.id}`)
       .then(res => {
-        console.log("response from removeGarden", res.data)
         props.deleteGarden(props.id)
       })
       .catch(err => {

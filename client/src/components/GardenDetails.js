@@ -4,14 +4,9 @@ import PlantCardList from './PlantCardList';
 import AllPlants from './AllPlants';
 import GardenUpdate from './GardenUpdate';
 import GardenDelete from './GardenDelete';
-
 import "./GardenDetails.css"
-
 import M from 'materialize-css'
 import 'materialize-css'
-
-console.log(process.env.REACT_APP_WEATHER_API_KEY)
-
 
 export default function GardenDetails(props) {
 
@@ -36,20 +31,13 @@ export default function GardenDetails(props) {
     M.AutoInit();
     var elems = document.querySelectorAll('.modal');
     var instances = M.Modal.init(elems, {
-      // onOpenEnd: () => props.handleSuccessfulAuth(props.loggedInUser)
     });
-    // M.Modal.getInstance(document.querySelectorAll('modal2'));
-    // M.Modal.getInstance(document.querySelectorAll('modal3'));
-    // return () => props.handleSuccessfulAuth()
-
-
   }, [])
 
   const minTemp = parseInt(weather.temp_min);
   const maxTemp = parseInt(weather.temp_max);
   const currentTemp = parseInt(weather.temp);
 
-  // console.log(maxTemp, minTemp, currentTemp)
   const weatherImg = `http://openweathermap.org/img/wn/${weatherDetails.icon}@2x.png`;
   const description = weatherDetails.description;
 

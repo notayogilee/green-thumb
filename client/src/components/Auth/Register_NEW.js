@@ -2,15 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Button from '../Button';
 
-// import useLoggedInState from '../../hooks/useLoggedInState';
-
-
 // Warning: Changing formats may affect server-side response.
 
-
 export default function Register(props) {
-
-  // const { loggedInState, handleSuccessfulAuth, checkLoginStatus } = useLoggedInState()
 
 
   // "registrationErrors" is clint-side only //
@@ -22,7 +16,6 @@ export default function Register(props) {
     registrationErrors: ""
   });
 
-
   const handleChange = function (event) {
     setUser({
       ...user,
@@ -32,8 +25,6 @@ export default function Register(props) {
 
   const handleSubmit = function (event) {
     event.preventDefault();
-
-    console.log("Registration form submitted");
 
     axios
       .post('http://localhost:3000/registrations', // <-- this is full path, would it work without "http://localhost:3000"?
@@ -48,7 +39,6 @@ export default function Register(props) {
         { withCredentials: true } // <-- VERY-IMPORTANT: Tells rails-API to set this cookie in client/browser. Without it no permission. Won't give errors!.
       )
       .then(res => {
-        console.log("registration Response", res.data)
         if (res.data.status === "created") {
           props.handleSuccessfulAuth(res.data)
         }

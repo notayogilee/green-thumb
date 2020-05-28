@@ -34,7 +34,6 @@ export default function GardenUpdate(props) {
           location: garden.location
         })
       .then((res => {
-        console.log("response from submitGarden (Update)", res)
         setToggle(!toggle)
         props.updateGarden(res.data)
       }))
@@ -42,19 +41,19 @@ export default function GardenUpdate(props) {
         console.log("SubmitGarden (Update) Error", err)
       })
   };
-  //  onClick={() => setToggle(!toggle)}
 
-useEffect( () => {
-  var elems = document.querySelectorAll('.modal');
-  var instances = M.Modal.init(elems, {
-    opacity: 0.2
-  });
-}, [])
+
+  useEffect(() => {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems, {
+      opacity: 0.2
+    });
+  }, [])
 
   return (
     <div>
 
-      <button 
+      <button
         className="btn green modal-trigger"
         href={`#garden-edit${props.id}`}
         onClick={() => setToggle(!toggle)}
@@ -63,12 +62,11 @@ useEffect( () => {
       </button>
 
       {
-        // toggle &&
+
         <div id={`garden-edit${props.id}`} class="modal col s12 m6 l3 green accent-1">
 
           <form className="modal-content"
-            className="form" 
-            // id='dropdown1'
+            className="form"
             onSubmit={submitGarden}
           >
             <div className="container">
@@ -92,7 +90,7 @@ useEffect( () => {
               />
 
               <button className="btn waves-effect waves-light" type="submit"> Update Garden! </button>
-              <br/>
+              <br />
               <div></div>
             </div>
           </form>

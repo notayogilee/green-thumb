@@ -25,7 +25,6 @@ export default function Login(props) {
     loginErrors: ""
   });
 
-  console.log('LoginNew', props)
 
   const handleChange = (event) => {
     setUser({
@@ -37,8 +36,6 @@ export default function Login(props) {
   const handleSubmit = function (event) {
     event.preventDefault();
 
-    console.log("Login-session form submitted");
-    // console.log("loggedInState (BEFORE) : ", loggedInState)
     axios
       .post('http://localhost:3000/sessions', // <-- this is full path, would it work without "http://localhost:3000"?
         {
@@ -50,7 +47,6 @@ export default function Login(props) {
         { withCredentials: true } // <-- VERY-IMPORTANT: Tells rails-API to set this cookie in client/browser. Without it no permission. Won't give errors!.
       )
       .then(res => {
-        console.log("Login Response", res.data)
         if (res.data.status === "created") {
           props.handleSuccessfulAuth(res.data)
         }
@@ -61,7 +57,6 @@ export default function Login(props) {
         console.log("Login Error", err)
       })
 
-    // console.log("loggedInState (AFTER) : ", loggedInState)
   };
 
   return (

@@ -68,7 +68,6 @@ function App() {
     axios
       .delete(`http://localhost:3000/logout`, { withCredentials: true })
       .then(response => {
-        console.log("Logout response : ", response)
         handleLogoutState();
       })
       .catch(error => {
