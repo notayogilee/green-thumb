@@ -74,15 +74,12 @@ export default function GardenDetails(props) {
   return (
     <div className="col s12 m3 l3">
       <div className="card medium weather-card">
-
-        {/* <div className="container"> */}
         <div id="weather">
           <img src={weatherImg} width="100" height="100" alt="img" />
           <h6>{description}</h6>
           <h6>Temperature {currentTemp} °C</h6>
           Min: {minTemp} Max: {maxTemp}
         </div>
-        {/* </div> */}
         <div className="weather card-content">
           <span className="card-title activator grey-text text-darken-4">{props.title}</span>
           <h6> Location: {props.location} </h6>
@@ -105,22 +102,11 @@ export default function GardenDetails(props) {
               />
             </div>
           </div>
-          {/* <p><a href="#">This is a link</a></p> */}
         </div>
         <div className="card-reveal">
           <span className="card-title grey-text text-darken-4"><i className="material-icons right">close</i>Card Title</span>
           <p>Here is some more information about this product that is only revealed once clicked on.</p>
         </div>
-        {/* <h5>{props.title}</h5> */}
-
-        {/* <div className="container">
-     <h6> Location: </h6>
-     <h6>{props.location} </h6>
-    <img src={weatherImg} />
-    <h6>{description}</h6>
-    <h5>Temperature {currentTemp} °C</h5>
-    <h6>Min: {minTemp} Max: {maxTemp}</h6>
-      </div> */}
       </div>
       <br />
 
@@ -130,7 +116,6 @@ export default function GardenDetails(props) {
         href={`#show${props.id}`}
         onClick={() => findGarden(props.id)}
       >Add plants</button>
-      {/* <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Modal</a> */}
 
       {/* <!-- Modal Structure --> */}
       <div id={`show${props.id}`} class="modal">
@@ -150,22 +135,19 @@ export default function GardenDetails(props) {
       {/* <!-- Modal Trigger --> */}
       <button
         class="waves-effect waves-light btn modal-trigger"
-        // href="#modal3"
         href={`#planted${props.id}`}
         onClick={() => findGarden(props.id)}
       >Planted in {props.title}</button>
-      {/* <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Modal</a> */}
+
 
       {/* <!-- Modal Structure --> */}
       <div ref={M} id={`planted${props.id}`} class="modal">
-        {/* <div ref={M} id="modal3" class="modal"> */}
         <div class="modal-content">
           <h4>Plant List</h4>
 
           <ul>{plantCard}</ul>
         </div>
         <div class="modal-footer">
-          {/* <a href="/garden" class="modal-close waves-effect waves-green btn-flat">Garden</a> */}
         </div>
       </div>
 

@@ -16,7 +16,6 @@ export default function SearchResults(props) {
 
   }, [show])
 
-
   return (
     <>
       {!show &&
@@ -94,7 +93,6 @@ export default function SearchResults(props) {
             </div>
           </div>
         </div>
-
       }
     </>
   )

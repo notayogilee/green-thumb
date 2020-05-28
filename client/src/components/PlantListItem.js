@@ -5,7 +5,6 @@ import './PlantListItem.css'
 
 export default function PlantListItem(props) {
 
-
   useEffect(() => {
 
     var elems = document.querySelectorAll('.collapsible');
@@ -15,7 +14,6 @@ export default function PlantListItem(props) {
     });
 
   }, [])
-
 
   return (
 

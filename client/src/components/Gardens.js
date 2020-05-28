@@ -1,20 +1,12 @@
 import React from 'react';
 import GardenDetails from './GardenDetails';
 import GardenAdd from './GardenAdd';
-import M from 'materialize-css'
-import 'materialize-css'
+import 'materialize-css';
 
 
 export default function Garden(props) {
 
-
-  // this garden is passed as a prop from the state of useGarden in apps.
   let gardens = props.gardens;
-  // const tempGardens = props.gardens;
-
-  // const [gardens, setGardens] = useState(props.gardens)
-  // console.log("props.gardens", props.gardens)
-  // console.log("props.gardens", props.gardens)
 
   function findUserGarden(id, gardens) {
 
@@ -38,9 +30,6 @@ export default function Garden(props) {
       handleSuccessfulAuth={props.handleSuccessfulAuth}
     />
   )
-  // addNewGarden={addNewGarden}
-  // updateGarden={updateGarden}
-  // deleteGarden={deleteGarden}
 
   return (
     <>
@@ -50,8 +39,6 @@ export default function Garden(props) {
         addNewGarden={props.addNewGarden}
       />
       <div className="row">
-
-        {/* <div  className="col s24 m3 l3">  */}
         <div>
           <ul>
             {mapUserGardens}

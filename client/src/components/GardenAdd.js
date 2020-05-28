@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-/* 
-  Props needed : 
-    loggedInUser
-*/
-
 
 export default function GardenAdd(props) {
   const [toggle, setToggle] = useState(false)
@@ -39,7 +34,7 @@ export default function GardenAdd(props) {
         console.log("AddGarden Error", err)
       })
   };
-  //  onClick={() => setToggle(!toggle)}
+
   return (
     <div className="row col s12">
       <button className="waves-light btn col" onClick={() => setToggle(!toggle)}>Add a New Garden [+]</button>
@@ -58,7 +53,6 @@ export default function GardenAdd(props) {
                   type="text"
                   name="title"
                   value={garden.title}
-                  // placeholder="Enter your new garden's title"
                   onChange={handleChange}
                   required
                 />
@@ -71,7 +65,6 @@ export default function GardenAdd(props) {
                   type="text"
                   name="location"
                   value={garden.location}
-                  // placeholder="location"
                   onChange={handleChange}
                   required
                 />

@@ -1,9 +1,7 @@
 import React from 'react';
 import useGardenData from '../hooks/useGardenData';
 import { useHistory } from 'react-router-dom';
-import Button from './Button';
 import axios from 'axios';
-import Timer from './Timer';
 import './PlantCardList.css';
 
 export default function PlantCardList(props) {
@@ -19,7 +17,6 @@ export default function PlantCardList(props) {
     const plant = selectedPlant[0];
     return plant;
   }
-
 
   function addPlant(targetGardenId, targetPlantId) {
 
@@ -48,13 +45,11 @@ export default function PlantCardList(props) {
       }
       }>
 
-      {/* <div className="col"> */}
       <div className="col s12 m6 l">
         <div className="card">
           <div className="card-image image">
             <img src={props.img} width="200" height="400" />
             <span className="secondary-color card-title">{props.name}</span>
-
 
             <a onClick={() => handleShow(props.id)} className="btn-floating halfway-fab btn-large green lighten-2 secondary-color"><i className="secondary-color lni-32 lni lni-question-circle"></i></a>
             {props.loggedInUser && props.loggedInUser.logged_in && props.wateringTime === undefined &&
@@ -71,15 +66,9 @@ export default function PlantCardList(props) {
                 <a onClick={() => removePlant(props.gardenId, props.id)} className="left btn-floating btn-large waves-effect halfway-fab red "><i class="large material-icons">clear</i></a>
               </>
             }
-
-
           </div>
         </div>
       </div>
-      {/* </div> */}
-
-
     </form>
-
   )
 }

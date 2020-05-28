@@ -27,6 +27,3 @@ export default function useGardenData() {
 
   return { state, setState };
 }
-
-
-

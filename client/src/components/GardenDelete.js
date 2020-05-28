@@ -20,25 +20,20 @@ export default function GardenDelete(props) {
 
   return (
     <div>
-      <button 
-        className="btn red modal-trigger" 
+      <button
+        className="btn red modal-trigger"
         href={`#garden-delete${props.id}`}
         onClick={() => setToggle(!toggle)}
       >
         <i class="material-icons">delete</i>
       </button>
       {
-        // toggle &&
         <div id={`garden-delete${props.id}`} class="modal col s6 m6 l3 green accent-1">
           <div className="modal-content">
-          <h4>Are you sure?</h4>
-          <button 
-          className="btn red modal-trigger" 
-          onClick={removeGarden}>Yes, I'm sure.</button>
-          {/* <button 
-           className="btn grey modal-trigger" 
-           href={`#garden-delete${props.id}`}
-           onClick={() => setToggle(!toggle)}onClick={() => setToggle(!toggle)}>Cancel</button> */}
+            <h4>Are you sure?</h4>
+            <button
+              className="btn red modal-trigger"
+              onClick={removeGarden}>Yes, I'm sure.</button>
           </div>
         </div>
       }

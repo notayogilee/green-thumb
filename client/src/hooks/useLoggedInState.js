@@ -19,7 +19,7 @@ export default function useLoggedInState(initial) {
     });
     console.log("handleLoginState (HOOK)", loggedInState)
   };
-  
+
   // Helper Function // setState : Logout
   const handleLogoutState = function () {
     setLoggedInState({
@@ -27,12 +27,10 @@ export default function useLoggedInState(initial) {
       user: {}
     });
   };
-  
-  // mentioned in tutorial , not yet seeing its use, but kept it for reference
+
   const handleSuccessfulAuth = function (data) {
     handleLoginState(data);
     checkLoginStatus();
-    // props.history.push("/dashboard"); // <- this is related to react-router
   };
 
 
@@ -44,7 +42,7 @@ export default function useLoggedInState(initial) {
           response.data.logged_in &&
           loggedInState.loggedInStatus === "NOT_LOGGED_IN"
         ) {
-          // handleLoginState(response.data);
+
           setLoggedInState({
             loggedInStatus: "LOGGED_IN",
             user: response.data.user
@@ -59,8 +57,6 @@ export default function useLoggedInState(initial) {
       .catch(error => {
         console.log("check login error", error);
       });
-
-      // return loggedInState // ??
   };
 
 

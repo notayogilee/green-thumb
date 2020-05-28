@@ -13,7 +13,6 @@ export default function Sidebar(props) {
     inDuration: 250
   });
 
-
   return (
     <div className="green lighten-2 position">
       <div className="menu">

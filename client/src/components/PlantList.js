@@ -32,9 +32,7 @@ export default function PlantList(props) {
 
   return (
 
-
     plantArray
-
 
   )
 }
